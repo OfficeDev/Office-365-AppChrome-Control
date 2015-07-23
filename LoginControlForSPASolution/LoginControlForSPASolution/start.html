@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/adal.js"></script>
+    <script type="text/javascript" src="Office.Controls.Login.js"></script>
+</head>
+<body>
+    <span id="logged_user"></span>&nbsp;&nbsp;
+    <a href="#" id="login_user">Login</a><br /><br /><br />
+    <input type="button" onclick="callWebAPI()" value="Call WebAPI after login" /><br />
+    Reslut returned from server:<br />
+    <div id="result"></div>
+
+    <script type="text/javascript">
+        var login;
+        window.config = {
+            //instance: 'https://login.microsoftonline.com/',
+            clientId: '2c8a76f0-54fd-4511-98c9-4fc8b123735e',
+            redirectUri: window.location.href,
+            postLogoutRedirectUri: window.location,
+            cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+        };
+
+        if (typeof Office !== "undefined" && typeof Office.Controls.Login !== "undefined") {
+            creatLoginControl();
+        } else {
+            var timerId = window.setInterval(function () {
+                if (typeof Office !== "undefined" && typeof Office.Controls.Login !== "undefined") {
+                    window.clearInterval(timerId);
+                    creatLoginControl();
+                }
+            }, 100);
+        }
+
+    function creatLoginControl() {
+
+        login = new Office.Controls.Login("implicit", window.config);
+
+        var user = login.getCurrentUser();
+        if (user) {
+            document.getElementById('logged_user').innerText = user.userName;
+            document.getElementById('login_user').textContent = 'Logout';
+        }
+
+        document.getElementById('login_user').addEventListener("click", function () {
+            if (user) {
+                login.signOut();
+            } else {
+                login.signIn();
+            }
+        });
+    }
+
+    function callWebAPI() {
+        login.getAccessToken(window.config.clientId, callAPIWithToken);
+    }
+
+    function callAPIWithToken(error, token) {
+            // Handle ADAL Error
+            if (error || !token) {
+                console.log('ADAL Error Occurred: ' + error);
+                return;
+            }
+
+            $.ajax({
+                type: "GET",
+                url: "api/WebAPI",
+                headers: {
+                    'Authorization': 'Bearer ' + token,
+                },
+            }).done(function (data) {
+
+                document.getElementById("result").innerHTML = data;
+
+            }).fail(function () {
+                console.log('Fail on get result returned from server');
+            }).always(function () {
+                console.log('Finish call from web API');
+            });
+    }
+    </script>
+
+</body>
+</html>
