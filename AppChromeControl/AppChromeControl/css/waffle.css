@@ -1,0 +1,261 @@
+.o365cs-nav-spinnerContainer {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	margin-top: 11px
+}
+.o365cs-nav-spinner {
+	width: 12px;
+	height: 12px;
+	position: relative;
+	padding: 2px;
+	overflow: hidden;
+	-moz-animation-duration: 1000ms;
+	-webkit-animation-duration: 1000ms;
+	animation-duration: 1000ms;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+	-moz-animation-timing-function: steps(8, end);
+	-webkit-animation-timing-function: steps(8, end);
+	animation-timing-function: steps(8, end);
+	-moz-animation-name: rotate;
+	-webkit-animation-name: rotate;
+	animation-name: rotate
+}
+.o365cs-nav-spinnerBall {
+	width: 3px;
+	height: 3px;
+	border-radius: 100%;
+	position: absolute;
+	-moz-transform-origin: 6px 6px;
+	-webkit-transform-origin: 6px 6px;
+	transform-origin: 6px 6px
+}
+.o365cs-nav-spinnerBall:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg)
+}
+.o365cs-nav-spinnerBall:nth-child(2) {
+	opacity: .8;
+	-webkit-transform: rotate(0);
+	-moz-transform: rotate(0);
+	transform: rotate(0)
+}
+.o365cs-nav-spinnerBall:nth-child(3) {
+	opacity: .6;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg)
+}
+.o365cs-nav-spinnerBall:nth-child(4) {
+	opacity: .4;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	transform: rotate(-90deg)
+}
+.o365cs-nav-spinnerBall:nth-child(5) {
+	opacity: .25;
+	-webkit-transform: rotate(-135deg);
+	-moz-transform: rotate(-135deg);
+	transform: rotate(-135deg)
+}
+.o365cs-nav-spinnerBall:nth-child(6) {
+	opacity: .15;
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	transform: rotate(-180deg)
+}
+.o365cs-nav-spinnerBall:nth-child(7) {
+	opacity: .075;
+	-webkit-transform: rotate(-225deg);
+	-moz-transform: rotate(-225deg);
+	transform: rotate(-225deg)
+}
+.o365cs-nav-spinnerBall:nth-child(8) {
+	opacity: .05;
+	-webkit-transform: rotate(-270deg);
+	-moz-transform: rotate(-270deg);
+	transform: rotate(-270deg)
+}
+.o365cs-base .ms-fcl-tp, .o365cs-base .ms-fcl-tp-h:hover {
+	color: #0078d7
+}
+.o365cs-nav-navMenuTitle {
+	display: block;
+	margin-top: -9px;
+	margin-bottom: 12px;
+	font-family: "SegoeUI-Light-final", "Segoe UI Light", "Segoe UI WPC Semilight", "Segoe UI", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 28px;
+	line-height: normal
+}
+.o365cs-base .ms-fcl-np, .o365cs-base .ms-fcl-np-h:hover {
+	color: #333
+}
+.o365cs-nav-appItem {
+	float: left
+}
+.o365cs-nav-appTile {
+	display: block;
+	margin-top: 0;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	margin-left: 0;
+	text-align: center;
+	line-height: normal;
+	position: relative;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: .125s outline ease-in-out, .125s -webkit-transform ease-in-out;
+	-moz-transition: .125s outline ease-in-out;
+	transition: .125s outline ease-in-out, .125s -webkit-transform ease-in-out
+}
+.o365cs-nav-appTileMedium {
+	width: 110px;
+	height: 110px
+}
+.o365cs-nav-appTileIcon {
+	display: inline-block
+}
+.o365cs-nav-appTileSmall .o365cs-nav-appTileIcon {
+	font-size: 28px !important;
+	margin-top: 10px
+}
+.o365cs-nav-appTileMedium .o365cs-nav-appTileIcon, .o365cs-nav-appTileWide .o365cs-nav-appTileIcon {
+	font-size: 55px !important;
+	margin-top: 20px
+}
+.wf-size-x55 {
+	font-size: 55px !important
+}
+.o365cs-nav-appTileSmall .o365cs-nav-appTileImage {
+	width: 100%;
+	height: 100%
+}
+.o365cs-nav-appTileMedium .o365cs-nav-appTileImage, .o365cs-nav-appTileWide .o365cs-nav-appTileImage {
+	width: 60px;
+	height: 60px;
+	margin-top: 15px
+}
+.o365cs-nav-appTileTitle {
+	font-family: "SegoeUI-Regular-final", "Segoe UI", "Segoe UI WPC", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	position: absolute;
+	left: 10px;
+	bottom: 4px;
+	display: block;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	text-align: left;
+	line-height: 15px;
+	max-height: 30px
+}
+.o365cs-nav-appTileSmall .o365cs-nav-appTileTitle {
+	display: none
+}
+.o365cs-nav-appTileMedium .o365cs-nav-appTileTitle {
+	width: 85px
+}
+.o365cs-nav-appTileWide .o365cs-nav-appTileTitle {
+	width: 210px
+}
+.o365cs-nav-appAffordance {
+	background-color: transparent !important;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 30px;
+	height: 20px;
+	min-width: 0;
+	text-align: center
+}
+.o365cs-nav-appAffordanceIcon {
+	visibility: hidden
+}
+.o365cs-nav-appTileHovered .o365cs-nav-appAffordanceIcon, .o365cs-nav-appTilePressed .o365cs-nav-appAffordanceIcon, .o365cs-nav-appTile:focus .o365cs-nav-appAffordanceIcon, .o365cs-nav-appTileMenuShown .o365cs-nav-appAffordanceIcon, .o365cs-nav-appAffordance:focus .o365cs-nav-appAffordanceIcon {
+	visibility: visible
+}
+.o365cs-nav-appNew {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: .8;
+	border-style: solid;
+	border-width: 40px 40px 0 0;
+	border-color: #fff transparent transparent transparent
+}
+.o365cs-nav-appNewIcon {
+	position: absolute;
+	top: -40px;
+	left: 0;
+	font-size: 14px !important;
+	width: 20px;
+	text-align: center;
+	line-height: 20px
+}
+.o365cs-nav-navMenuMyAppsA {
+	margin-right: 10px;
+	position: relative;
+	width: 110px;
+	height: 110px;
+	float: right
+}
+.o365cs-nav-navMenuMyAppsB {
+	clear: both
+}
+.o365cs-nav-navMenuMyAppsA .o365cs-nav-navMenuMyAppsLink, .o365cs-nav-navMenuMyAppsA .o365cs-nav-navMenuMyAppsLink:hover {
+	font-family: "SegoeUI-SemiBold-final", "Segoe UI Semibold", "Segoe UI", "Segoe UI WPC", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-decoration: none
+}
+.o365cs-nav-navMenuMyAppsB .o365cs-nav-navMenuMyAppsLink, .o365cs-nav-navMenuMyAppsB .o365cs-nav-navMenuMyAppsLink:hover {
+	display: inline-block;
+	font-family: "SegoeUI-Regular-final", "Segoe UI", "Segoe UI WPC", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	margin-top: 2px;
+	margin-bottom: 6px;
+	vertical-align: middle;
+	text-decoration: none
+}
+.o365cs-base .ms-fcl-ts, .o365cs-base .ms-fcl-ts-h:hover {
+	color: #2b88d8
+}
+.o365cs-nav-navMenuMyAppsB .o365cs-nav-navMenuMyAppsLinkIcon {
+	margin-top: 2px;
+	margin-right: 8px
+}
+.o365cs-nav-navMenuMyAppsB .o365cs-nav-navMenuMyAppsLinkText {
+	vertical-align: middle
+}
+.o365cs-nav-navMenuError * {
+	font-family: "Segoe UI", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	vertical-align: top;
+	line-height: normal
+}
+.o365cs-nav-navMenuError a {
+	margin-left: 5px;
+	margin-right: 5px
+}
+.o365cs-clear {
+	clear: both
+}
+._fc_3, ._fc_4 {
+	vertical-align: middle
+}
+.o365buttonOutlined .o365buttonLabel {
+	display: inline-block
+}
+.o365buttonOutlined .o365buttonLabel {
+	height: 22px
+}
