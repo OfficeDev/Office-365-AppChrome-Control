@@ -24,11 +24,11 @@
 
         signIn: function (callback) {
             var objNull = null;
-            if (!Office.Controls.Utils.isNullOrUndefined(callback) && !Office.Controls.Utils.isFunction(callback)) {
+            if (!(callback === objNull || callback === undefined) && typeof callback !== 'function') {
                 throw new Error('callback is not a function');
             }
             if (this.authContext) {
-                if (!Office.Controls.Utils.isNullOrUndefined(callback)) {
+                if (callback !== objNull && callback !== undefined) {
                     this.authContext.callback = callback;
                 }
                 this.authContext.login();
@@ -49,8 +49,8 @@
             return this.authContext;
         },
 
-        getAccessTokenAsync: function (resource, callback) {
-            if (!Office.Controls.Utils.isFunction(callback)) {
+        getAccessToken: function (resource, callback) {
+            if (typeof callback !== 'function') {
                 throw new Error('callback is not a function');
             }
             this.authContext.acquireToken(resource, function (error, token) {

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="css/MasterStyles15.css">
+    <link rel="stylesheet" type="text/css" href="css/a.css">
+    <link rel="stylesheet" type="text/css" href="css/b.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://prod.msocdn.com/16.00.0827.002/en-US/Images/favicon_metro.ico">
+    <link rel="stylesheet" type="text/css" href="https://controls.office.com/people/0.9.0/office.controls.persona.css">
+    <script type="text/javascript" src="js/Office.Controls.Base.js"></script>
+    <script type="text/javascript" src="js/Office.Controls.Login.js"></script>
+    <script type="text/javascript" src="js/Office.Controls.AppChromeNew.js"></script>
+    <script type="text/javascript" src="https://controls.office.com/people/0.9.0/office.controls.persona.js"></script>
+    <script type="text/javascript" src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/adal.js"></script>
+</head>
+<body>
+    <div id="cotainer"></div>
+    <script type="text/javascript">
+    var login;
+    window.config = {
+        //instance: 'https://login.microsoftonline.com/',
+        //clientId: '33b27054-70fe-4883-b10e-938a595a72ca',
+        clientId: '2c8a76f0-54fd-4511-98c9-4fc8b123735e',
+        redirectUri: window.location.href,
+        postLogoutRedirectUri: window.location,
+        cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
+    };
+
+    if (typeof Office !== "undefined" && typeof Office.Controls.AppChrome !== "undefined") {
+        creatAppChrome();
+    } else {
+        var timerId = window.setInterval(function () {
+            if (typeof Office !== "undefined" && typeof Office.Controls.AppChrome !== "undefined") {
+                window.clearInterval(timerId);
+                creatAppChrome();
+            }
+        }, 100);
+    }
+
+    function creatAppChrome() {
+        //login = new Office.Controls.Login("implicit", window.config);
+        var ItemtoAdd = {
+            "Bing": "http://www.bing.com/",
+            "Microsoft": "http://www.microsoft.com/en-au/",
+            "MSDN": "http://msdn.itellyou.cn/"
+        };
+        var appChrome = new Office.Controls.AppChrome(document.getElementById('cotainer'), "Microsoft123", ItemtoAdd, false);
+    }
+    </script>
+</body>
+</html>
