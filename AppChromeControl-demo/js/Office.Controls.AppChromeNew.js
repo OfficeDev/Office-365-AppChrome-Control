@@ -12,28 +12,40 @@
         }
     }
 
-    Office.Controls.AppChrome = function (root, appDisPlayName, appLinks, isSignIn) {
-        if (typeof root !== 'object' || typeof appDisPlayName !== 'string' || typeof appLinks !== 'object') {
+    Office.Controls.AppChrome = function (root, loginProvider, options) {
+        if (typeof root !== 'object' || typeof loginProvider !== 'object' || (!Office.Controls.Utils.isNullOrUndefined(options) && typeof options !== 'object')) {
             Office.Controls.Utils.errorConsole('Invalid parameters type');
             return;
         }
         this.rootNode = root;
-        this.appDisPlayName = appDisPlayName;
-        this.appLinks = appLinks;
-        this.renderControl(appDisPlayName, isSignIn, appLinks);
+        this.loginProvider = loginProvider;
+        if (!Office.Controls.Utils.isNullOrUndefined(options)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.appTitle)) {
+                this.appDisPlayName = options.appTitle;
+            }
+            if (!Office.Controls.Utils.isNullOrUndefined(options.appURI)) {
+                this.appURI = options.appURI;
+            }
+            if (!Office.Controls.Utils.isNullOrUndefined(options.settingsLinks)) {
+                this.settingsLinks = options.settingsLinks;
+            }
+        }
+        this.renderControl();
     };
 
     Office.Controls.AppChrome.prototype = {
         rootNode: null,
         dropDownListNode: null,
+        loginProvider: null,
         appDisPlayName: null,
-        appLinks: null,
+        appURI: null,
+        settingsLinks: null,
       
 
-        renderControl: function (appDisPlayName, isSignIn, appLinks) {
-            this.rootNode.innerHTML = Office.Controls.appChromeTemplates.generateControlTemplate(appDisPlayName, isSignIn);
+        renderControl: function () {
+            this.rootNode.innerHTML = Office.Controls.appChromeTemplates.generateBannerTemplate(this.appDisPlayName, this.appURI, this.loginProvider);
             var dropDonwListRoot = document.createElement("div");
-            dropDonwListRoot.innerHTML = Office.Controls.appChromeTemplates.generateDropDownList(appLinks);
+            dropDonwListRoot.innerHTML = Office.Controls.appChromeTemplates.generateDropDownList(this.settingsLinks);
             this.rootNode.parentNode.insertBefore(dropDonwListRoot, this.rootNode.nextSibling);
         },
 
@@ -43,16 +55,16 @@
     Office.Controls.appChromeTemplates = function () {
     };
 
-    Office.Controls.appChromeTemplates.generateControlTemplate = function (appDisPlayName, isSignIn) {
+    Office.Controls.appChromeTemplates.generateBannerTemplate = function (appDisPlayName, appURI, loginProvider) {
         var body = '<div id=\"GeminiShellHeader\" class=\"removeFocusOutline\"><div autoid=\"_o365sg2c_k\" class=\"o365cs-nav-header16 o365cs-base o365cst o365spo o365cs-nav-header o365cs-topnavBGColor-2 o365cs-topnavBGImage\" id="O365_NavHeader\">';
-        body += Office.Controls.appChromeTemplates.generateLeftPart(appDisPlayName);
+        body += Office.Controls.appChromeTemplates.generateLeftPart(appDisPlayName, appURI);
         body += Office.Controls.appChromeTemplates.generateMiddlePart();
-        body += Office.Controls.appChromeTemplates.generateRightPart(isSignIn);
+        body += Office.Controls.appChromeTemplates.generateRightPart(loginProvider);
         body += '</div></div>';
         return body;
     };
 
-    Office.Controls.appChromeTemplates.generateLeftPart = function (appDisPlayName) {
+    Office.Controls.appChromeTemplates.generateLeftPart = function (appDisPlayName, appURI) {
         var innerHtml = '<div class=\"o365cs-nav-leftAlign\"><div class=\"o365cs-nav-topItem\"><button type=\"button\" class=\"o365cs-nav-item o365cs-nav-button o365cs-navMenuButton ms-bgc-tdr-h o365button ms-bgc-tp\" role=\"menuitem\" id=\"O365_MainLink_NavMenu\" aria-label=\"Open the app launcher to access your Office 365 apps\">';
         innerHtml += '<div class=\"o365cs-base o365cst o365cs-nav-navMenu popupShadow removeFocusOutline\" ispopup=\"1\" tabindex=\"0\" style=\"display: none;\"></div>';
         innerHtml +='<div class=\"o365cs-base o365cst o365cs-nav-inactivityCallout popupShadow removeFocusOutline\" ispopup=\"1\" tabindex=\"0\" style=\"display: none;\"></div>';
@@ -72,8 +84,8 @@
         return innerHtml;
     };
 
-    Office.Controls.appChromeTemplates.generateRightPart = function (isSignIn) {
-        if (!isSignIn) {
+    Office.Controls.appChromeTemplates.generateRightPart = function (loginProvider) {
+        if (Office.Controls.Utils.isNullOrUndefined(loginProvider.hasSignedIn) || loginProvider.hasSignedIn()== false) {
             var innerHtml = '<div class=\"o365cs-nav-rightAlign o365cs-topnavLinkBackground-2\" id=\"O365_TopMenu\"><div><div class=\"o365cs-nav-headerRegion\"><div class=\"o365cs-nav-notificationTrayContainer\"><div class=\"o365cs-w100-h100" style="display: none;\"></div></div>';
             innerHtml += '<div class=\"o365cs-nav-pinnedAppsContainer\"><div class=\"o365cs-nav-pinnedApps\"><div></div></div></div></div><div class=\"o365cs-nav-rightMenus\"><div role=\"banner\" aria-label=\"User settings\">';
             innerHtml += '<div class=\"o365cs-nav-topItem\"><button autoid=\"_o365sg2c_0\" type=\"button\" class=\"o365cs-nav-item o365cs-nav-button ms-fcl-w o365cs-me-nav-item o365button ms-bgc-tdr-h\" role=\"menuitem\" aria-label=\"offline menu with submenu\" aria-haspopup=\"true\" id=\"login_user\">';
