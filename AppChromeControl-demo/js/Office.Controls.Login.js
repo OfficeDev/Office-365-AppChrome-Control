@@ -74,6 +74,16 @@
             }else {
                 return false;
             }
-        }
+        },
+
+        getUserInfoAsync: function (callback) {
+            var user = this.authContext.getCachedUser()
+            var userInfo = new Object();
+            userInfo.accountName = user.userName;
+            userInfo.displayName = user.profile.family_name + ' ' + user.profile.given_name;
+            callback("", userInfo);
+    }
+
+
     };
 })();
