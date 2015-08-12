@@ -47,9 +47,8 @@
             }
             );
         } else {
-            instance.updateControl();
+            this.updateControl();
         }
-        
     };
 
     Office.Controls.AppChrome.prototype = {
