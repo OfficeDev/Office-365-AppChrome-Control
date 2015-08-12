@@ -33,6 +33,7 @@
         if (!Office.Controls.Utils.isNullOrUndefined(loginProvider.hasSignedIn)) {
             this.isSignedIn = loginProvider.hasSignedIn();
         }
+        this.renderControl();
         if (this.isSignedIn == true) {
             var instance = this;
             loginProvider.getUserInfoAsync(function (error, userData) {
@@ -45,8 +46,9 @@
                 instance.updateControl();
             }
             );
+        } else {
+            instance.updateControl();
         }
-        this.renderControl();
         
     };
 
