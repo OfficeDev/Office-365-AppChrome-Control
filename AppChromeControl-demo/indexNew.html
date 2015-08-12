@@ -18,7 +18,6 @@
 <body>
     <div id="cotainer"></div>
     <script type="text/javascript">
-    var login;
     window.config = {
         //instance: 'https://login.microsoftonline.com/',
         //clientId: '33b27054-70fe-4883-b10e-938a595a72ca',
@@ -40,13 +39,18 @@
     }
 
     function creatAppChrome() {
-        //login = new Office.Controls.Login("implicit", window.config);
         var ItemtoAdd = {
             "Bing": "http://www.bing.com/",
             "Microsoft": "http://www.microsoft.com/en-au/",
             "MSDN": "http://msdn.itellyou.cn/"
         };
-        var appChrome = new Office.Controls.AppChrome(document.getElementById('cotainer'), "Microsoft123", ItemtoAdd, false);
+        var login = new Office.Controls.Login("implicit", window.config);
+        options = new Object();
+        options.appTitle ="MIcrosoft123";
+        options.appURI = "www.g.cn";
+        options.settingsLinks = ItemtoAdd
+
+        var appChrome = new Office.Controls.AppChrome(document.getElementById('cotainer'), login, options);
     }
     </script>
 </body>
