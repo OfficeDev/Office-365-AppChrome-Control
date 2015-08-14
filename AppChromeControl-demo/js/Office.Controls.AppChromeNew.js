@@ -137,7 +137,7 @@
     Office.Controls.appChromeTemplates = function() {};
 
     Office.Controls.appChromeTemplates.generateBannerTemplate = function(appDisPlayName, appURI) {
-        var body = '<div id=\"GeminiShellHeader\" class=\"removeFocusOutline\"><div autoid=\"_o365sg2c_k\" class=\"o365cs-nav-header16 o365cs-base o365cst o365spo o365cs-nav-header o365cs-topnavBGColor-2 o365cs-topnavBGImage\" id="O365_NavHeader\">';
+        var body = '<div id=\"GeminiShellHeader\" class=\"removeFocusOutline\"><div autoid=\"_o365sg2c_k\" class=\"o365cs-nav-header16 o365cs-base o365cs-topnavBGColor-2 o365cs-topnavBGImage\" id="O365_NavHeader\">';
         body += Office.Controls.appChromeTemplates.generateLeftPart(appDisPlayName, appURI);
         body += Office.Controls.appChromeTemplates.generateMiddlePart();
         body += Office.Controls.appChromeTemplates.generateRightPart();
@@ -146,41 +146,34 @@
     };
 
     Office.Controls.appChromeTemplates.generateLeftPart = function(appDisPlayName, appURI) {
-        var innerHtml = '<div class=\"o365cs-nav-leftAlign\"><div class=\"o365cs-nav-topItem\"><button type=\"button\" class=\"o365cs-nav-item o365cs-nav-button o365cs-navMenuButton ms-bgc-tdr-h o365button ms-bgc-tp\" role=\"menuitem\" id=\"O365_MainLink_NavMenu\" aria-label=\"Open the app launcher to access your Office 365 apps\">';
-        innerHtml += '<div class=\"o365cs-base o365cst o365cs-nav-navMenu popupShadow removeFocusOutline\" ispopup=\"1\" tabindex=\"0\" style=\"display: none;\"></div>';
-        innerHtml += '<div class=\"o365cs-base o365cst o365cs-nav-inactivityCallout popupShadow removeFocusOutline\" ispopup=\"1\" tabindex=\"0\" style=\"display: none;\"></div>';
-        innerHtml += '<span class=\"wf wf-size-x18 wf-family-o365\" role=\"presentation\">Home</span><div class=\"o365cs-nav-navMenuBeak\" style=\"display: none;\"></div>';
-        innerHtml += '<div class=\"o365cs-nav-inactivityCalloutBeak ms-bcl-tp\" style=\"display: none;\"></div></button></div>';
-        innerHtml += '<div class=\"o365cs-nav-topItem ms-fcl-w\" style=\"display: none;\"></div>';
+        var innerHtml = '<div class=\"o365cs-nav-leftAlign\">';
         innerHtml += '<div class=\"o365cs-nav-topItem o365cs-nav-o365Branding\">';
         innerHtml += '<a class=\"o365cs-nav-bposLogo o365cs-topnavText o365cs-o365logo o365button\" role=\"link\" id=\"O365_MainLink_Logo\" href=\"http://portal.office.com\" aria-label=\"Go to your Office 365 home page\"><span class=\"o365cs-nav-brandingText\">Office 365</span></a>';
         innerHtml += '<div class=\"o365cs-nav-appTitleLine o365cs-nav-brandingText o365cs-topnavText\"></div>';
         innerHtml += '<a class=\"o365cs-nav-appTitle o365cs-topnavText o365button\" role=\"link\" href=\"' + appURI + '\" aria-label=\"Go to the App home page\">';
-        innerHtml += '<span class=\"o365cs-nav-brandingText\" id=\"change_name\">' + Office.Controls.Utils.htmlEncode(appDisPlayName) + '</a></div><div class=\"o365cs-nav-topItem o365cs-breadCrumbContainer\" style=\"display: none;\"></div></div>'
+        innerHtml += '<span class=\"o365cs-nav-brandingText\" id=\"change_name\">' + Office.Controls.Utils.htmlEncode(appDisPlayName) + '</a></div></div>'
         return innerHtml;
     };
 
     Office.Controls.appChromeTemplates.generateMiddlePart = function() {
-        var innerHtml = '<div class=\"o365cs-nav-centerAlign\"><div style=\"display: none;\"></div><div style=\"display: none;\"></div></div>';
+        var innerHtml = '<div class=\"o365cs-nav-centerAlign\"></div>';
         return innerHtml;
     };
 
     Office.Controls.appChromeTemplates.generateRightPart = function() {
-        var innerHtml = '<div class=\"o365cs-nav-rightAlign o365cs-topnavLinkBackground-2\" id=\"O365_TopMenu\"><div><div class=\"o365cs-nav-headerRegion\"><div class=\"o365cs-nav-notificationTrayContainer\"><div class=\"o365cs-w100-h100" style="display: none;\"></div></div>';
-        innerHtml += '<div class=\"o365cs-nav-pinnedAppsContainer\"><div class=\"o365cs-nav-pinnedApps\"><div></div></div></div></div><div class=\"o365cs-nav-rightMenus\"><div role=\"banner\" aria-label=\"User settings\">';
+        var innerHtml = '<div class=\"o365cs-nav-rightAlign o365cs-topnavLinkBackground-2\" id=\"O365_TopMenu\"><div>';
+        innerHtml += '<div class=\"o365cs-nav-rightMenus\"><div role=\"banner\" aria-label=\"User settings\">';
         innerHtml += '<div class=\"o365cs-nav-topItem\"><button autoid=\"_o365sg2c_0\" type=\"button\" class=\"o365cs-nav-item o365cs-nav-button ms-fcl-w o365cs-me-nav-item o365button ms-bgc-tdr-h\" role=\"menuitem\" aria-label=\"offline menu with submenu\" aria-haspopup=\"true\" id=\"login_user\">';
 
         innerHtml += '<div class=\"o365cs-me-tileview-container\" id=\"image_container\">';
 
-        innerHtml += '<div autoid=\"_o365sg2c_1\" class=\"o365cs-me-tileview\"><div autoid=\"_o365sg2c_2\" class=\"o365cs-me-presence5x50 o365cs-me-presenceColor-Offline\"></div><span autoid=\"_o365sg2c_3\" class=\"ms-bgc-nt ms-fcl-w o365cs-me-tileimg o365cs-me-tileimg-doughboy owaimg wf wf-size-x52 wf-o365-people wf-family-o365\" role=\"presentation\"></span>';
-        innerHtml += '<div style=\"display: none;\"></div><div class=\"o365cs-me-tileimg\"><img autoid=\"_o365sg2c_5\" class=\"o365cs-me-personaimg\" src=\"image/default.jpg\" style=\"display: inline; width: 50px; top: 0px;\" id=\"login_user_image\"></div></div></div>';
+        innerHtml += '<div autoid=\"_o365sg2c_1\" class=\"o365cs-me-tileview\"><div class=\"o365cs-me-tileimg\"><img autoid=\"_o365sg2c_5\" class=\"o365cs-me-personaimg\" src=\"image/default.jpg\" style=\"display: inline; width: 50px; top: 0px;\" id=\"login_user_image\"></div></div></div>';
 
-        innerHtml += '<div><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div autoid=\"_o365sg2c_7\" class=\"o365cs-me-presenceOffline5x50\"></div><div class=\"o365cs-me-tile-nophoto-username-container\">';
+        innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
-        innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span>';
-        innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"UserName\" style=\"display:none\"></span>';
-        innerHtml += '</div><span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 wf-o365-downcarat wf-family-o365\" role=\"presentation\"></span></div></div></button></div></div>';
-        innerHtml += '<div class=\"o365cs-w100-h100\"><div><div class=\"o365cs-notifications-notificationPopupArea o365cs o365cs-base o365cst\" ispopup=\"1\" style=\"display: none;\"></div><div style=\"display: none;\"></div></div></div></div></div></div>';
+        innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span></div>';
+        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 wf-o365-downcarat wf-family-o365\" role=\"presentation\"></span></div></div>'
+        innerHtml += '</button></div></div></div></div></div>';
         return innerHtml;
 
 
