@@ -44,7 +44,7 @@
             "Microsoft": "http://www.microsoft.com/en-au/",
             "MSDN": "http://msdn.itellyou.cn/"
         };
-        var login = new Office.Controls.Login("implicit", window.config);
+        var login = new Office.Controls.ImplicitGrantLogin(window.config);
         options = new Object();
         options.appTitle ="MIcrosoft123";
         options.appURI = "www.g.cn";

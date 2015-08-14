@@ -12,14 +12,12 @@
         }
     }
 
-    Office.Controls.Login = function (authType, config) {
-        this.authType = authType;
+    Office.Controls.ImplicitGrantLogin = function (config) {
         this.authContext = new AuthenticationContext(config);
         this.authContext.handleWindowCallback();
     };
 
-    Office.Controls.Login.prototype = {
-        authType: "implicit",
+    Office.Controls.ImplicitGrantLogin.prototype = {
         authContext: null,
 
         signIn: function (callback) {
