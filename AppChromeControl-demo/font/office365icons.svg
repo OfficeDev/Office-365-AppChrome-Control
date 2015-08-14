@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="office365icons" horiz-adv-x="1000" >
+<font-face font-family="office365icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="triangleEmptyDown" unicode="&#xe266;" d="m821 658l-321-556-321 556h642m104 60h-850l425-736 425 736 0 0z" horiz-adv-x="1000" />
+</font>
+</defs>
+</svg>

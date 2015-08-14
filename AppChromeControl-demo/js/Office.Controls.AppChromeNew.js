@@ -94,6 +94,7 @@
             var loginButton = document.getElementById('login_user');
             var Personalistview = document.getElementById('_ariaId_7');
             if (this.isSignedIn == false) {
+                document.getElementById('dropdownIcon').style.display = 'none';
                 document.getElementById('image_container').style.display = 'none';
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode("Sign In");
                 loginButton.addEventListener('click', function() {
@@ -115,6 +116,21 @@
                         Personalistview.style.display = 'none';
                     }
                 });
+                document.onclick = function(e) {
+                    if (Personalistview.style.display == 'block') {
+                        e = e || event;
+                        var target = e.target || e.srcElement;
+                        while (target) {
+                            if (target == loginButton || target == Personalistview) {
+                                Personalistview.style.display = 'block';
+                                break;
+                            } else {
+                                Personalistview.style.display = 'none';
+                            }
+                            target = target.parentNode;
+                        }
+                    }
+                }
             }
         },
 
@@ -172,7 +188,7 @@
         innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
         innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span></div>';
-        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 wf-o365-downcarat wf-family-o365\" role=\"presentation\"></span></div></div>'
+        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 ms-Icon--triangleEmptyDown wf-family-o365\" role=\"presentation\" style=\"display:table-cell\" id=\"dropdownIcon\"></span></div></div>'
         innerHtml += '</button></div></div></div></div></div>';
         return innerHtml;
 
