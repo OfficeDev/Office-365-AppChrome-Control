@@ -115,6 +115,7 @@
                     } else {
                         Personalistview.style.display = 'none';
                     }
+                    instance.changeTopMenuColor();
                 });
                 document.onclick = function(e) {
                     if (Personalistview.style.display == 'block') {
@@ -130,7 +131,19 @@
                             target = target.parentNode;
                         }
                     }
+                    instance.changeTopMenuColor();
                 }
+            }
+        },
+
+        changeTopMenuColor: function() {
+            var Personalistview = document.getElementById('_ariaId_7');
+            if (Personalistview.style.display == 'block') {
+                document.getElementById('O365_TopMenu').style.backgroundColor = '#fff';
+                document.getElementById('user_name').style.color = '#000';
+            } else {
+                document.getElementById('O365_TopMenu').style.backgroundColor = '#005a9e';
+                document.getElementById('user_name').style.color = '#fff';
             }
         },
 
@@ -188,7 +201,7 @@
         innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
         innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span></div>';
-        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 ms-Icon--triangleEmptyDown wf-family-o365\" role=\"presentation\" style=\"display:table-cell\" id=\"dropdownIcon\"></span></div></div>'
+        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 ms-Icon--caretDown wf-family-o365\" role=\"presentation\" style=\"display:table-cell\" id=\"dropdownIcon\"></span></div></div>'
         innerHtml += '</button></div></div></div></div></div>';
         return innerHtml;
 

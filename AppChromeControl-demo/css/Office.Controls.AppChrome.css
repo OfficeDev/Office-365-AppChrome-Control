@@ -1,52 +1,3 @@
-.customScrollBar::-webkit-scrollbar {
-	height: 18px;
-	width: 18px
-}
-.customScrollBar::-webkit-scrollbar:disabled {
-	display: none
-}
-.customScrollBar::-webkit-scrollbar-button {
-	background-color: #fff;
-	background-repeat: no-repeat;
-	cursor: pointer
-}
-.customScrollBar::-webkit-scrollbar-button:horizontal:increment, .customScrollBar::-webkit-scrollbar-button:horizontal:decrement, .customScrollBar::-webkit-scrollbar-button:horizontal:increment:hover, .customScrollBar::-webkit-scrollbar-button:horizontal:decrement:hover, .customScrollBar::-webkit-scrollbar-button:vertical:increment, .customScrollBar::-webkit-scrollbar-button:vertical:decrement, .customScrollBar::-webkit-scrollbar-button:vertical:increment:hover, .customScrollBar::-webkit-scrollbar-button:vertical:decrement:hover {
-	background-position: center;
-	height: 18px;
-	width: 18px
-}
-.customScrollBarLight::-webkit-scrollbar-button {
-	display: none
-}
-.customScrollBar::-webkit-scrollbar-track {
-	background-color: #fff
-}
-.customScrollBarLight::-webkit-scrollbar-track {
-	background-color: #0072c6
-}
-.customScrollBar::-webkit-scrollbar-thumb {
-	border-radius: 9px;
-	border: solid 6px #fff;
-	background-color: #c8c8c8
-}
-.customScrollBarLight::-webkit-scrollbar-thumb {
-	border-color: #0072c6;
-	background-color: #95b1c1
-}
-.customScrollBar::-webkit-scrollbar-thumb:vertical {
-	min-height: 50px
-}
-.customScrollBar::-webkit-scrollbar-thumb:horizontal {
-	min-width: 50px
-}
-.customScrollBar::-webkit-scrollbar-thumb:hover {
-	border-radius: 9px;
-	border: solid 6px #fff;
-	background-color: #98a3a6
-}
-.customScrollBar::-webkit-scrollbar-corner {
-	background-color: #fff
-}
 ._fce_q {
 	max-height: none
 }
@@ -83,29 +34,6 @@
 .removeFocusOutline *:focus {
 	outline: none
 }
-.popupShadow {
-	box-shadow: 0 0 20px rgba(0, 0, 0, .4);
-	border: 1px solid #eaeaea
-}
-.o365cs-nav-inactivityCallout {
-	background-color: #fff;
-	border: 1px solid #808184;
-	-webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, .4);
-	box-shadow: 0 1px 15px rgba(0, 0, 0, .4);
-	-webkit-box-sizing: content-box !important;
-	-moz-box-sizing: content-box !important;
-	box-sizing: content-box !important;
-	position: absolute;
-	margin: 15px 10px 0 10px;
-	width: 220px;
-	height: auto
-}
-.o365cs-nav-navMenuBeak {
-	position: absolute;
-	bottom: -11px;
-	left: 11px;
-	z-index: 2100
-}
 .o365cs-nav-appTileContextMenu {
 	border: 1px solid #e5f0f9;
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .6);
@@ -113,13 +41,6 @@
 }
 .o365cs-nav-appTileContextMenu .scrollContainer {
 	min-width: 165px
-}
-.o365cs-nav-navMenuBeak:before, .o365cs-nav-navMenuBeak:after {
-	border: solid transparent;
-	content: ' ';
-	height: 0;
-	position: absolute;
-	width: 0
 }
 .o365cs-nav-appTileContextMenu .o365cs-contextMenuItem {
 	display: block;
@@ -138,18 +59,6 @@
 .o365cs-nav-contextMenu .o365cs-contextMenuSeparator {
 	border-top-style: solid;
 	border-top-width: 1px
-}
-.o365cs-nav-navMenuBeak:before {
-	border-width: 9px;
-	border-bottom-color: #b6b6b6;
-	top: -18px;
-	left: 5px
-}
-.o365cs-nav-navMenuBeak:after {
-	border-width: 8px;
-	border-bottom-color: #fff;
-	top: -16px;
-	left: 6px
 }
 .o365cs-nav-inactivityCalloutBeak {
 	position: absolute;
@@ -239,7 +148,7 @@
 	border-color: #0078d7
 }
 .o365cs-base.o365cs-topnavBGColor-2 {
-	background-color: #000
+	background-color: #005a9e
 }
 .o365cs-base.o365cs-topnavBGImage {
 	background-position: center top;
@@ -393,10 +302,10 @@
 	background-color: #104a7d
 }
 .o365cs-base .o365cs-topnavLinkBackground-2 {
-	background-color: #000
+	background-color: #005a9e
 }
 .o365cs-base .o365cs-topnavLinkBackground-2 {
-	background-color: rgba(0, 0, 0, .8)
+	background-color: rgba(255, 255, 255, .0)
 }
 .o365cs-base .ms-bgc-nt, .o365cs-base .ms-bgc-nt-h:hover {
 	background-color: #a6a6a6
@@ -711,6 +620,4 @@
  
 }
  
-.ms-Icon--triangleEmptyDown:before{
-	content: '\e266' ;
-}
+.ms-Icon--caretDown:before { content: '\e052'; } /* '' */

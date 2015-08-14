@@ -6,7 +6,7 @@
 <font id="office365icons" horiz-adv-x="1000" >
 <font-face font-family="office365icons" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
 <missing-glyph horiz-adv-x="1000" />
-<glyph glyph-name="triangleEmptyDown" unicode="&#xe266;" d="m821 658l-321-556-321 556h642m104 60h-850l425-736 425 736 0 0z" horiz-adv-x="1000" />
+<glyph glyph-name="caretDown" unicode="&#xe052;" d="m800 500l-300-300-300 300h600z" horiz-adv-x="1000" />
 </font>
 </defs>
 </svg>
