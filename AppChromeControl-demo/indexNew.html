@@ -46,8 +46,15 @@
         options.appTitle ="Microsoft";
         options.appURI = "www.g.cn";
         options.settingsLinks = ItemtoAdd
-
+        options.onSignIn = listener1;
+        options.onSignOut = listener2;
         var appChrome = new Office.Controls.AppChrome(document.getElementById('cotainer'), login, options);
+    }
+    function listener1() {
+        alert("listener function-- sign in");
+    }
+    function listener2() {
+        alert("listener function-- sign out");
     }
     </script>
 </body>
