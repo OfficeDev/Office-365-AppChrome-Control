@@ -149,11 +149,9 @@
         changeTopMenuColor: function() {
             var Personalistview = document.getElementById('_ariaId_7');
             if (Personalistview.style.display == 'block') {
-                document.getElementById('O365_TopMenu').style.backgroundColor = '#fff';
-                document.getElementById('user_name').style.color = '#000';
+                this.addClass(document.getElementById('login_user'),"o365cs-personaShow");
             } else {
-                document.getElementById('O365_TopMenu').style.backgroundColor = '#005a9e';
-                document.getElementById('user_name').style.color = '#fff';
+                this.removeClass(document.getElementById('login_user'),"o365cs-personaShow");
             }
         },
 
@@ -163,13 +161,29 @@
                 return;
             }
             var personaObj = {};
-            personaObj.SecondaryText = this.signedUserInfo.accountName;
-            personaObj.PrimaryText = this.signedUserInfo.displayName;
-            personaObj.ImageUrl = this.defaultImage;
+            personaObj.jobTitle = null;
+            personaObj.department = this.signedUserInfo.accountName;
+            personaObj.displayName = this.signedUserInfo.displayName;
+            personaObj.imgSrc = this.defaultImage;
             if (this.signedUserInfo.imgSrc != null) {
-                personaObj.ImageUrl = this.signedUserInfo.imgSrc;
+                personaObj.imgSrc = this.signedUserInfo.imgSrc;
             }
             Office.Controls.Persona.PersonaHelper.createInlinePersona(ele, personaObj);
+        },
+
+        hasClass: function(obj, classStr) {
+            return obj.className.match(new RegExp('(\\s|^)' + classStr + '(\\s|$)'));
+        },
+
+        addClass: function(obj, classStr) {
+            if (!this.hasClass(obj, classStr)) obj.className += " " + classStr;
+        },
+
+        removeClass: function(obj, classStr) {
+            if (this.hasClass(obj, classStr)) {
+                var reg = new RegExp('(\\s|^)' + classStr + '(\\s|$)');
+                obj.className = obj.className.replace(reg, ' ');
+            }
         }
     };
 
