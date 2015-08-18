@@ -21,9 +21,10 @@
         }
         this.rootNode = root;
         this.loginProvider = loginProvider;
-        if (!Office.Controls.Utils.isNullOrUndefined(appTitle)) {
+        if (!Office.Controls.Utils.isNullOrUndefined(appTitle) && appTitle.replace(/(^\s+)|(\s+$)/g, "").length != 0) {
             this.appDisPlayName = appTitle;
-            if (!Office.Controls.Utils.isNullOrUndefined(options)) {}
+        }
+        if (!Office.Controls.Utils.isNullOrUndefined(options)) {
             if (!Office.Controls.Utils.isNullOrUndefined(options.appHomeUrl)) {
                 this.appHomeUrl = options.appHomeUrl;
             }
@@ -62,7 +63,7 @@
         rootNode: null,
         dropDownListNode: null,
         loginProvider: null,
-        appDisPlayName: null,
+        appDisPlayName: "3rd Party App",
         appHomeUrl: null,
         customizedItems: null,
         isSignedIn: false,
