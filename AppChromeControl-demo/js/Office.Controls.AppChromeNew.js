@@ -253,7 +253,6 @@
         return innerHtml;
     };
 
-    //if (Office.Controls.appChromeResourceString.registerClass) { Office.Controls.appChromeResourceString.registerClass('Office.Controls.appChromeResourceString'); }
     Office.Controls.appChromeResourceString = function () { };
     Office.Controls.appChromeResourceString.SignInString = 'Sign In';
     Office.Controls.appChromeResourceString.SignOutString = 'Sign Out';
