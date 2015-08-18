@@ -43,12 +43,11 @@
         };
         var login = new Office.Controls.ImplicitGrantLogin(window.config);
         options = new Object();
-        options.appTitle ="Microsoft";
         options.appHomeUrl = "www.g.cn";
         options.customizedItems = ItemtoAdd
         options.onSignIn = listener1;
         options.onSignOut = listener2;
-        var appChrome = new Office.Controls.AppChrome(document.getElementById('cotainer'), login, options);
+        var appChrome = new Office.Controls.AppChrome("Microsoft", document.getElementById('cotainer'), login, options);
     }
     function listener1() {
         alert("listener function-- sign in");
