@@ -44,8 +44,8 @@
         var login = new Office.Controls.ImplicitGrantLogin(window.config);
         options = new Object();
         options.appTitle ="Microsoft";
-        options.appURI = "www.g.cn";
-        options.settingsLinks = ItemtoAdd
+        options.appHomeUrl = "www.g.cn";
+        options.customizedItems = ItemtoAdd
         options.onSignIn = listener1;
         options.onSignOut = listener2;
         var appChrome = new Office.Controls.AppChrome(document.getElementById('cotainer'), login, options);

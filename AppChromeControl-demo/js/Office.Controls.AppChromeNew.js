@@ -25,11 +25,11 @@
             if (!Office.Controls.Utils.isNullOrUndefined(options.appTitle)) {
                 this.appDisPlayName = options.appTitle;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.appURI)) {
-                this.appURI = options.appURI;
+            if (!Office.Controls.Utils.isNullOrUndefined(options.appHomeUrl)) {
+                this.appHomeUrl = options.appHomeUrl;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.settingsLinks)) {
-                this.settingsLinks = options.settingsLinks;
+            if (!Office.Controls.Utils.isNullOrUndefined(options.customizedItems)) {
+                this.customizedItems = options.customizedItems;
             }
             if (!Office.Controls.Utils.isNullOrUndefined(options.onSignIn)) {
                 this.onSignIn = options.onSignIn;
@@ -38,8 +38,8 @@
                 this.onSignOut = options.onSignOut;
             }
         }
-        if (!Office.Controls.Utils.isNullOrUndefined(loginProvider.hasSignedIn)) {
-            this.isSignedIn = loginProvider.hasSignedIn();
+        if (!Office.Controls.Utils.isNullOrUndefined(loginProvider.hasLogin)) {
+            this.isSignedIn = loginProvider.hasLogin();
         }
         this.registerinnerText();
         this.renderControl();
@@ -64,8 +64,8 @@
         dropDownListNode: null,
         loginProvider: null,
         appDisPlayName: null,
-        appURI: null,
-        settingsLinks: null,
+        appHomeUrl: null,
+        customizedItems: null,
         isSignedIn: false,
         signedUserInfo: null,
         onSignIn: function () { },
@@ -87,14 +87,14 @@
         },
 
         renderControl: function() {
-            this.rootNode.innerHTML = Office.Controls.appChromeTemplates.generateBannerTemplate(this.appDisPlayName, this.appURI);
+            this.rootNode.innerHTML = Office.Controls.appChromeTemplates.generateBannerTemplate(this.appDisPlayName, this.appHomeUrl);
             var dropDonwListRoot = document.createElement("div");
-            dropDonwListRoot.innerHTML = Office.Controls.appChromeTemplates.generateDropDownList(this.settingsLinks);
+            dropDonwListRoot.innerHTML = Office.Controls.appChromeTemplates.generateDropDownList(this.customizedItems);
             this.rootNode.parentNode.insertBefore(dropDonwListRoot, this.rootNode.nextSibling);
             var instance = this;
             document.getElementById('O365_SubLink_ShellSignout').addEventListener('click', function () {
                 instance.onSignOut();
-                instance.loginProvider.signOut();
+                instance.loginProvider.logout();
             });
         },
 
@@ -108,7 +108,7 @@
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode("Sign In");
                 loginButton.addEventListener('click', function () {
                     instance.onSignIn();
-                    instance.loginProvider.signIn();
+                    instance.loginProvider.login();
                 });
             } else {
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode(this.signedUserInfo.displayName);

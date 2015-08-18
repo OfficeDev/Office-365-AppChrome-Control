@@ -24,7 +24,7 @@
         aadGraphResourceId: '00000002-0000-0000-c000-000000000000',
         apiVersion: 'api-version=1.5',
 
-        signIn: function(callback) {
+        login: function(callback) {
             var objNull = null;
             if (!Office.Controls.Utils.isNullOrUndefined(callback) && !Office.Controls.Utils.isFunction(callback)) {
                 throw new Error('callback is not a function');
@@ -39,7 +39,7 @@
             }
         },
 
-        signOut: function() {
+        logout: function() {
             if (this.authContext && this.authContext.getCachedUser) {
                 this.authContext.logOut();
             } else {
@@ -69,7 +69,7 @@
             return this.authContext.getCachedUser();
         },
 
-        hasSignedIn: function() {
+        hasLogin: function() {
             var user = this.authContext.getCachedUser();
             if (user) {
                 return true;
