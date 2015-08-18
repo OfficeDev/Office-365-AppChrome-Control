@@ -298,8 +298,12 @@
 .o365cs-base .o365cs-topnavText, .o365cs-base .o365cs-topnavText:hover {
 	color: #fff
 }
-.o365cs-base .ms-bgc-tdr, .o365cs-base .ms-bgc-tdr-h:hover {
+.o365cs-base .ms-bgc-tdr {
 	background-color: #104a7d
+}
+.o365cs-base .ms-bgc-tdr-h:hover, .o365cs-base .o365cs-personaShow {
+	background-color: #fff;
+	color: #000
 }
 .o365cs-base .o365cs-topnavLinkBackground-2 {
 	background-color: #005a9e
