@@ -301,9 +301,15 @@
 .o365cs-base .ms-bgc-tdr {
 	background-color: #104a7d
 }
-.o365cs-base .ms-bgc-tdr-h:hover, .o365cs-base .o365cs-personaShow {
+.o365cs-base .ms-bgc-tdr-h:hover {
+	background-color: #004578;
+}
+.o365cs-base .o365cs-personaShow {
 	background-color: #fff;
 	color: #000
+}
+.o365cs-base .ms-item-tdr:hover {
+	background-color: #eaeaea;
 }
 .o365cs-base .o365cs-topnavLinkBackground-2 {
 	background-color: #005a9e
@@ -417,7 +423,7 @@
 }
 .o365cs-me-tile-nophoto-down {
 	padding: 0 0 0 0;
-	display: table-cell !important
+	display: table-cell
 }
 .o365cs-me-tile-nophoto-username {
 	display: table-cell;
@@ -586,7 +592,7 @@
 .o365cs-me-caretDown{
     width: 0px;
     height: 0px;
-    border-width: 6px 6px 0;
+    border-width: 5.5px 5.5px 0;
     border-style: solid dashed dashed dashed;
     border-color: #adadad;
     border-left-color: transparent;

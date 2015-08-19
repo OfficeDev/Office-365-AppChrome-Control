@@ -160,8 +160,10 @@
             var Personalistview = document.getElementById('_ariaId_7');
             if (Personalistview.style.display == 'block') {
                 this.addClass(document.getElementById('login_user'), "o365cs-personaShow");
+                this.removeClass(document.getElementById('login_user'), "ms-bgc-tdr-h");
             } else {
                 this.removeClass(document.getElementById('login_user'), "o365cs-personaShow");
+                this.addClass(document.getElementById('login_user'), "ms-bgc-tdr-h");
             }
         },
 
@@ -235,7 +237,7 @@
         innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
         innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span></div>';
-        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18\" role=\"presentation\" id=\"dropdownIcon\"><div class=\"o365cs-me-caretDownContainer\"><div class=\"o365cs-me-caretDown\"></div></div></span></div></div>'
+        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18\" role=\"presentation\" id=\"dropdownIcon\" style=\"display:table-cell\"><div class=\"o365cs-me-caretDownContainer\"><div class=\"o365cs-me-caretDown\"></div></div></span></div></div>'
         innerHtml += '</button></div></div></div></div></div>';
         return innerHtml;
 
@@ -265,14 +267,14 @@
     };
 
     Office.Controls.appChromeTemplates.generateAppLinkPart = function(name, link) {
-        var innerHtml = '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" tabindex=\"-1\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" href=\"' + link + '\">';
+        var innerHtml = '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" class=\"ms-item-tdr\" tabindex=\"-1\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" href=\"' + link + '\">';
         innerHtml += '<div class=\"_fce_j\"><span class=\"_fce_k owaimg\" role=\"presentation\" style=\"display: none;\"></span><span autoid=\"_fce_4\">' + Office.Controls.Utils.htmlEncode(name) + '</span></div></a></div>';
         return innerHtml;
     };
 
     Office.Controls.appChromeTemplates.generateSignOutPart = function() {
         var innerHtml = '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" tabindex=\"-1\"><div class=\"o365cs-contextMenuSeparator ms-bcl-nl\"></div></div>';
-        innerHtml += '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" tabindex=\"-1\" aria-label=\"Sign out and return to the Sign-in page\" title=\"Sign out and return to the Sign-in page\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" id=\"O365_SubLink_ShellSignout\" aria-label=\"Sign out of Office 365 and return to the Sign-in page\">';
+        innerHtml += '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" class=\"ms-item-tdr\" tabindex=\"-1\" aria-label=\"Sign out and return to the Sign-in page\" title=\"Sign out and return to the Sign-in page\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" id=\"O365_SubLink_ShellSignout\" aria-label=\"Sign out of Office 365 and return to the Sign-in page\">';
         innerHtml += '<div class=\"_fce_j\"><span class=\"_fce_k owaimg\" role=\"presentation\" style=\"display: none;\"></span><span autoid=\"_fce_4\" aria-label=\"Sign out of Office 365 and return to the Sign-in page\">' + Office.Controls.Utils.htmlEncode(Office.Controls.appChromeResourceString.SignOutString) + '</span></div></a></div>';
         return innerHtml;
     };
