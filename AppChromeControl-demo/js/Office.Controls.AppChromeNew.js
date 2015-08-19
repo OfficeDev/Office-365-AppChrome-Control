@@ -31,10 +31,10 @@
             if (!Office.Controls.Utils.isNullOrUndefined(options.customizedItems)) {
                 this.customizedItems = options.customizedItems;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignIn)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignIn)&&Office.Controls.Utils.isFunction(options.onSignIn)) {
                 this.onSignIn = options.onSignIn;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignOut)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignOut)&&Office.Controls.Utils.isFunction(options.onSignOut)) {
                 this.onSignOut = options.onSignOut;
             }
         }

@@ -135,11 +135,9 @@
                     userInfo.imgSrc = image;
                     callback(error, userInfo);
                 });
-            }else{
+            } else {
                 callback('Not login', null);
             }
-
         }
-
     };
 })();
