@@ -31,10 +31,10 @@
             if (!Office.Controls.Utils.isNullOrUndefined(options.customizedItems)) {
                 this.customizedItems = options.customizedItems;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignIn)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignIn)&&Office.Controls.Utils.isFunction(options.onSignIn)) {
                 this.onSignIn = options.onSignIn;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignOut)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignOut)&&Office.Controls.Utils.isFunction(options.onSignOut)) {
                 this.onSignOut = options.onSignOut;
             }
         }
@@ -55,7 +55,17 @@
                 instance.updateControl();
             });
         } else {
-            this.updateControl();
+            var instance = this;
+            loginProvider.getUserInfoAsync(function(error, userData) {
+                if (!Office.Controls.Utils.isNullOrUndefined(userData)) {
+                    instance.signedUserInfo = userData;
+                    instance.isSignedIn = true;
+                } else {
+                    instance.isSignedIn = false;
+                    Office.Controls.Utils.errorConsole(error);
+                }
+                instance.updateControl();
+            });
         }
     };
 
@@ -106,7 +116,7 @@
                 document.getElementById('dropdownIcon').style.display = 'none';
                 document.getElementById('image_container').style.display = 'none';
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode(Office.Controls.appChromeResourceString.SignInString);
-                loginButton.addEventListener('click', function () {
+                loginButton.addEventListener('click', function() {
                     instance.onSignIn();
                     instance.loginProvider.login();
                 });
@@ -225,7 +235,7 @@
         innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
         innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span></div>';
-        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 ms-Icon--caretDown wf-family-o365\" role=\"presentation\" style=\"display:table-cell\" id=\"dropdownIcon\"></span></div></div>'
+        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18\" role=\"presentation\" id=\"dropdownIcon\"><div class=\"o365cs-me-caretDownContainer\"><div class=\"o365cs-me-caretDown\"></div></div></span></div></div>'
         innerHtml += '</button></div></div></div></div></div>';
         return innerHtml;
 
@@ -267,7 +277,7 @@
         return innerHtml;
     };
 
-    Office.Controls.appChromeResourceString = function () { };
+    Office.Controls.appChromeResourceString = function() {};
     Office.Controls.appChromeResourceString.SignInString = 'Sign In';
     Office.Controls.appChromeResourceString.SignOutString = 'Sign Out';
 

@@ -14,7 +14,7 @@
         }
     }
 
-    Office.Controls.ImplicitGrantLogin = function (config) {
+    Office.Controls.ImplicitGrantLogin = function(config) {
         this.authContext = new AuthenticationContext(config);
         this.authContext.handleWindowCallback();
     };
@@ -127,14 +127,17 @@
 
         getUserInfoAsync: function(callback) {
             var user = this.authContext.getCachedUser()
-            var userInfo = new Object();
-            userInfo.accountName = user.userName;
-            userInfo.displayName = user.profile.family_name + ' ' + user.profile.given_name;
-            this.getUserImageAsync(user.profile.oid, function(error, image) {
-                userInfo.imgSrc = image;
-                callback(error, userInfo);
-            });
+            if (user) {
+                var userInfo = new Object();
+                userInfo.accountName = user.userName;
+                userInfo.displayName = user.profile.family_name + ' ' + user.profile.given_name;
+                this.getUserImageAsync(user.profile.oid, function(error, image) {
+                    userInfo.imgSrc = image;
+                    callback(error, userInfo);
+                });
+            } else {
+                callback('Not login', null);
+            }
         }
-
     };
 })();
