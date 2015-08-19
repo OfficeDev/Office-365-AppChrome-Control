@@ -12,7 +12,7 @@
     <script type="text/javascript" src="https://controls.office.com/people/1.0/Office.Controls.People.js"></script>
     <script type="text/javascript" src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/adal.js"></script>
 </head>
-<body>
+<body style="margin:0px">
     <div id="cotainer"></div>
     <script type="text/javascript">
     window.config = {
@@ -45,8 +45,8 @@
         options = new Object();
         options.appHomeUrl = "www.g.cn";
         options.customizedItems = ItemtoAdd
-        options.onSignIn = listener1;
-        options.onSignOut = listener2;
+        //options.onSignIn = listener1;
+        //options.onSignOut = listener2;
         var appChrome = new Office.Controls.AppChrome("Microsoft", document.getElementById('cotainer'), login, options);
     }
     function listener1() {
