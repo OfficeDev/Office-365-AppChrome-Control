@@ -55,7 +55,17 @@
                 instance.updateControl();
             });
         } else {
-            this.updateControl();
+            var instance = this;
+            loginProvider.getUserInfoAsync(function(error, userData) {
+                if (!Office.Controls.Utils.isNullOrUndefined(userData)) {
+                    instance.signedUserInfo = userData;
+                    instance.isSignedIn = true;
+                } else {
+                    instance.isSignedIn = false;
+                    Office.Controls.Utils.errorConsole(error);
+                }
+                instance.updateControl();
+            });
         }
     };
 
@@ -106,7 +116,7 @@
                 document.getElementById('dropdownIcon').style.display = 'none';
                 document.getElementById('image_container').style.display = 'none';
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode(Office.Controls.appChromeResourceString.SignInString);
-                loginButton.addEventListener('click', function () {
+                loginButton.addEventListener('click', function() {
                     instance.onSignIn();
                     instance.loginProvider.login();
                 });
@@ -267,7 +277,7 @@
         return innerHtml;
     };
 
-    Office.Controls.appChromeResourceString = function () { };
+    Office.Controls.appChromeResourceString = function() {};
     Office.Controls.appChromeResourceString.SignInString = 'Sign In';
     Office.Controls.appChromeResourceString.SignOutString = 'Sign Out';
 

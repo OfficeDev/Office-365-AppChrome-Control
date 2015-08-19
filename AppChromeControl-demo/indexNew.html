@@ -47,7 +47,7 @@
         options.customizedItems = ItemtoAdd
         options.onSignIn = listener1;
         options.onSignOut = listener2;
-        var appChrome = new Office.Controls.AppChrome("Microsoft", document.getElementById('cotainer'), login, options);
+        var appChrome = new Office.Controls.AppChrome("Microsoft ", document.getElementById('cotainer'), login, options);
     }
     function listener1() {
         alert("listener function-- sign in");
