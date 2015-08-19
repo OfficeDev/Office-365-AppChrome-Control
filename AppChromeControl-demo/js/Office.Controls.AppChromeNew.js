@@ -235,7 +235,7 @@
         innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
         innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span></div>';
-        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18 ms-Icon--caretDown wf-family-o365\" role=\"presentation\" style=\"display:table-cell\" id=\"dropdownIcon\"></span></div></div>'
+        innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18\" role=\"presentation\" id=\"dropdownIcon\"><div class=\"o365cs-me-caretDownContainer\"><div class=\"o365cs-me-caretDown\"></div></div></span></div></div>'
         innerHtml += '</button></div></div></div></div></div>';
         return innerHtml;
 
