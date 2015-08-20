@@ -114,7 +114,6 @@
             var Personalistview = document.getElementById('_ariaId_7');
             if (this.isSignedIn == false) {
                 document.getElementById('dropdownIcon').style.display = 'none';
-                document.getElementById('image_container').style.display = 'none';
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode(Office.Controls.appChromeResourceString.SignInString);
                 loginButton.addEventListener('click', function() {
                     instance.onSignIn();
@@ -128,6 +127,7 @@
                     document.getElementById('login_user_image').src = this.defaultImage;
                 }
                 document.getElementById('login_user_image').title = this.signedUserInfo.displayName;
+                document.getElementById('image_container').style.display = 'table-cell';
                 this.genInlinePersona(document.getElementById('myPersona'));
                 loginButton.addEventListener('click', function() {
                     if (Personalistview.style.display == 'none') {

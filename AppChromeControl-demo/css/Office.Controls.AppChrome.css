@@ -365,7 +365,7 @@
 	width: 55px;
 	overflow: hidden;
 	position: relative;
-	display: table-cell;
+	display: none;
 }
 .o365cs-me-tileimg {
 	width: 50px;
