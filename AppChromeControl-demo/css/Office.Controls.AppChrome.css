@@ -430,8 +430,8 @@
 	vertical-align: middle;
 	height: 50px;
 	font-size: 15px;
-	padding-left: 10px;
-	padding-right: 10px
+	padding-left: 16px;
+	padding-right: 16px
 }
 .o365cs-me-triangle-container {
 	display: table-cell;
@@ -586,7 +586,7 @@
 .o365cs-me-caretDownContainer{
 	width: 20px;
 	padding-left: 0px;
-	padding-right: 5px;
+	padding-right: 12px;
 	display: table-cell
 }
 .o365cs-me-caretDown{
