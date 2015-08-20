@@ -362,7 +362,7 @@
 }
 .o365cs-me-tileview-container {
 	height: 50px;
-	width: 55px;
+	width: 50px;
 	overflow: hidden;
 	position: relative;
 	display: none;
@@ -374,14 +374,14 @@
 	position: absolute;
 	line-height: normal;
 	top: 0;
-	left: 5px
+	left: 0
 }
 .o365cs-me-personaimg {
 	position: absolute;
 	left: 0
 }
 .o365cs-me-tileview {
-	width: 55px;
+	width: 50px;
 	height: 50px;
 	overflow: hidden
 }

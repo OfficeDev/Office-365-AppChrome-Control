@@ -31,10 +31,10 @@
             if (!Office.Controls.Utils.isNullOrUndefined(options.customizedItems)) {
                 this.customizedItems = options.customizedItems;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignIn)&&Office.Controls.Utils.isFunction(options.onSignIn)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignIn) && Office.Controls.Utils.isFunction(options.onSignIn)) {
                 this.onSignIn = options.onSignIn;
             }
-            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignOut)&&Office.Controls.Utils.isFunction(options.onSignOut)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.onSignOut) && Office.Controls.Utils.isFunction(options.onSignOut)) {
                 this.onSignOut = options.onSignOut;
             }
         }
@@ -113,6 +113,7 @@
             var loginButton = document.getElementById('login_user');
             var Personalistview = document.getElementById('_ariaId_7');
             if (this.isSignedIn == false) {
+                this.addClass(document.getElementById("o365_ac_loginbutton"), "o365cs-me-tile-nophoto");
                 document.getElementById('dropdownIcon').style.display = 'none';
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode(Office.Controls.appChromeResourceString.SignInString);
                 loginButton.addEventListener('click', function() {
@@ -132,8 +133,6 @@
                 loginButton.addEventListener('click', function() {
                     if (Personalistview.style.display == 'none') {
                         Personalistview.style.display = 'block';
-                    } else {
-                        Personalistview.style.display = 'none';
                     }
                     instance.changeTopMenuColor();
                 });
@@ -192,7 +191,7 @@
         },
 
         removeClass: function(obj, classStr) {
-            if (this.hasClass(obj, classStr)) {
+            if (this.hasClass(obj, classStr)) { 
                 var reg = new RegExp('(\\s|^)' + classStr + '(\\s|$)');
                 obj.className = obj.className.replace(reg, ' ');
             }
@@ -234,7 +233,7 @@
 
         innerHtml += '<div autoid=\"_o365sg2c_1\" class=\"o365cs-me-tileview\"><div class=\"o365cs-me-tileimg\"><img autoid=\"_o365sg2c_5\" class=\"o365cs-me-personaimg\" src=\"image/default.jpg\" style=\"display: inline; width: 50px; top: 0px;\" id=\"login_user_image\"></div></div></div>';
 
-        innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" class=\"o365cs-me-tile-nophoto\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
+        innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" id=\"o365_ac_loginbutton\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
         innerHtml += '<span autoid=\"_o365sg2c_8\" class=\"o365cs-me-tile-nophoto-username o365cs-me-bidi\" id=\"user_name\"></span></div>';
         innerHtml += '<span class=\"wf-o365-x18 ms-fcl-nt o365cs-me-tile-nophoto-down owaimg wf wf-size-x18\" role=\"presentation\" id=\"dropdownIcon\" style=\"display:table-cell\"><div class=\"o365cs-me-caretDownContainer\"><div class=\"o365cs-me-caretDown\"></div></div></span></div></div>'
@@ -280,8 +279,8 @@
     };
 
     Office.Controls.appChromeResourceString = function() {};
-    Office.Controls.appChromeResourceString.SignInString = 'Sign In';
-    Office.Controls.appChromeResourceString.SignOutString = 'Sign Out';
+    Office.Controls.appChromeResourceString.SignInString = 'Sign in';
+    Office.Controls.appChromeResourceString.SignOutString = 'Sign out';
 
 
 })();
