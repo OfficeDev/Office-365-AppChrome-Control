@@ -32,7 +32,7 @@
 	background: #fff
 }
 .removeFocusOutline *:focus {
-	outline: none
+	outline: none;
 }
 .o365cs-nav-appTileContextMenu {
 	border: 1px solid #e5f0f9;
@@ -597,4 +597,12 @@
     border-color: #adadad;
     border-left-color: transparent;
     border-right-color: transparent;
+}
+.o365cs-dropdownlist{
+	min-width: 150px; 
+	position: absolute; 
+	box-sizing: border-box; 
+	outline: 0px; 
+	z-index: 2003; 
+	right: 0;
 }

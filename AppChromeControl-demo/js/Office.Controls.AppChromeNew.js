@@ -100,7 +100,7 @@
             this.rootNode.innerHTML = Office.Controls.appChromeTemplates.generateBannerTemplate(this.appDisPlayName, this.appHomeUrl);
             var dropDonwListRoot = document.createElement("div");
             dropDonwListRoot.innerHTML = Office.Controls.appChromeTemplates.generateDropDownList(this.customizedItems);
-            this.rootNode.parentNode.insertBefore(dropDonwListRoot, this.rootNode.nextSibling);
+            this.rootNode.insertBefore(dropDonwListRoot, this.rootNode.childNodes[1]);
             var instance = this;
             document.getElementById('O365_SubLink_ShellSignout').addEventListener('click', function() {
                 instance.onSignOut();
@@ -244,7 +244,7 @@
     };
 
     Office.Controls.appChromeTemplates.generateDropDownList = function(appLinks) {
-        var innerHtml = '<div class=\"o365cs-nav-contextMenu o365spo contextMenuPopup removeFocusOutline\" ispopup=\"1\" iscontextmenu=\"1\" role=\"menu\" ismodal=\"false\" tabindex=\"-1\" parentids=\"(6)\" style=\"min-width: 150px; position: absolute; box-sizing: border-box; outline: 0px; z-index: 2003; right: 0px; top: 60px; display: none;\" id=\"_ariaId_7\">';
+        var innerHtml = '<div class=\"o365cs-nav-contextMenu o365cs-dropdownlist contextMenuPopup removeFocusOutline\" ispopup=\"1\" iscontextmenu=\"1\" role=\"menu\" ismodal=\"false\" tabindex=\"-1\" parentids=\"(6)\" style=\"display: none;\" id=\"_ariaId_7\">';
         innerHtml += '<div class=\"o365cs-base ms-bgc-w o365cst o365cs-context-font o365cs-me-contextMenu\"><div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_0\" class=\"o365cs-me-itemsList\" tabindex=\"-1\" id=\"additem\"><div>';
         innerHtml += Office.Controls.appChromeTemplates.generatePersonaPart();
         if (!Office.Controls.Utils.isNullOrUndefined(appLinks)) {
