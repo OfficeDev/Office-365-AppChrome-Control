@@ -130,7 +130,7 @@
             if (user) {
                 var userInfo = new Object();
                 userInfo.accountName = user.userName;
-                userInfo.displayName = user.profile.family_name + ' ' + user.profile.given_name;
+                userInfo.displayName = user.profile.given_name + ' ' + user.profile.family_name;
                 this.getUserImageAsync(user.profile.oid, function(error, image) {
                     userInfo.imgSrc = image;
                     callback(error, userInfo);
