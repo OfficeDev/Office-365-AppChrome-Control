@@ -378,7 +378,12 @@
 }
 .o365cs-me-personaimg {
 	position: absolute;
-	left: 0
+	left: 0;
+	top: 0px;
+	display: inline; 
+	height: 50px;
+	width: 50px;
+	background: center/cover content-box no-repeat;
 }
 .o365cs-me-tileview {
 	width: 50px;
