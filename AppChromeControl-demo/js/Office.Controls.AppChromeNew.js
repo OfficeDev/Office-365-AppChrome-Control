@@ -99,6 +99,7 @@
         renderControl: function() {
             this.rootNode.innerHTML = Office.Controls.appChromeTemplates.generateBannerTemplate(this.appDisPlayName, this.appHomeUrl);
             var dropDonwListRoot = document.createElement("div");
+            dropDonwListRoot.style.position = 'relative';
             dropDonwListRoot.innerHTML = Office.Controls.appChromeTemplates.generateDropDownList(this.customizedItems);
             this.rootNode.insertBefore(dropDonwListRoot, this.rootNode.childNodes[1]);
             var instance = this;
