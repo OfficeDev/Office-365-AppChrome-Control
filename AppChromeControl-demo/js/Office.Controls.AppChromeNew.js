@@ -124,10 +124,10 @@
             } else {
                 document.getElementById('user_name').innerText = Office.Controls.Utils.htmlEncode(this.signedUserInfo.displayName);
                 if (this.signedUserInfo.imgSrc != null) {
-                    document.getElementById('login_user_image').src = this.signedUserInfo.imgSrc;
-                } else {
-                    document.getElementById('login_user_image').src = this.defaultImage;
+                    instance.defaultImage = this.signedUserInfo.imgSrc;
                 }
+                document.getElementById('login_user_image').style.backgroundImage = "url(" + instance.defaultImage + ")";
+
                 document.getElementById('login_user_image').title = this.signedUserInfo.displayName;
                 document.getElementById('image_container').style.display = 'table-cell';
                 this.genInlinePersona(document.getElementById('myPersona'));
@@ -192,7 +192,7 @@
         },
 
         removeClass: function(obj, classStr) {
-            if (this.hasClass(obj, classStr)) { 
+            if (this.hasClass(obj, classStr)) {
                 var reg = new RegExp('(\\s|^)' + classStr + '(\\s|$)');
                 obj.className = obj.className.replace(reg, ' ');
             }
@@ -232,7 +232,7 @@
 
         innerHtml += '<div class=\"o365cs-me-tileview-container\" id=\"image_container\">';
 
-        innerHtml += '<div autoid=\"_o365sg2c_1\" class=\"o365cs-me-tileview\"><div class=\"o365cs-me-tileimg\"><img autoid=\"_o365sg2c_5\" class=\"o365cs-me-personaimg\" src=\"image/default.jpg\" style=\"display: inline; width: 50px; top: 0px;\" id=\"login_user_image\"></div></div></div>';
+        innerHtml += '<div autoid=\"_o365sg2c_1\" class=\"o365cs-me-tileview\"><div class=\"o365cs-me-tileimg\"><img autoid=\"_o365sg2c_5\" class=\"o365cs-me-personaimg\" id=\"login_user_image\"></div></div></div>';
 
         innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" id=\"o365_ac_loginbutton\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
