@@ -126,7 +126,7 @@
                 if (this.signedUserInfo.imgSrc != null) {
                     instance.defaultImage = this.signedUserInfo.imgSrc;
                 }
-                document.getElementById('login_user_image').style.backgroundImage = "url(" + instance.defaultImage + ")";
+                document.getElementById('login_user_image').src = this.defaultImage;
 
                 document.getElementById('login_user_image').title = this.signedUserInfo.displayName;
                 document.getElementById('image_container').style.display = 'table-cell';
