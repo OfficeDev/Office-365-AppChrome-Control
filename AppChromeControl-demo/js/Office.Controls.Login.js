@@ -61,7 +61,7 @@
                     console.log('ADAL Error Occurred: ' + error);
                     return;
                 }
-                callBack(error, token)
+                callback(error, token)
             });
         },
 

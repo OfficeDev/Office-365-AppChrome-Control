@@ -4,6 +4,7 @@
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/adal.js"></script>
+    <script type="text/javascript" src="https://controls.office.com/people/1.0/Office.Controls.Base.js"></script>
     <script type="text/javascript" src="Office.Controls.Login.js"></script>
 </head>
 <body>
@@ -16,18 +17,17 @@
     <script type="text/javascript">
         var login;
         window.config = {
-            //instance: 'https://login.microsoftonline.com/',
             clientId: '2c8a76f0-54fd-4511-98c9-4fc8b123735e',
             redirectUri: window.location.href,
             postLogoutRedirectUri: window.location,
             cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
         };
 
-        if (typeof Office !== "undefined" && typeof Office.Controls.Login !== "undefined") {
+        if (typeof Office !== "undefined" && typeof Office.Controls!== "undefined") {
             creatLoginControl();
         } else {
             var timerId = window.setInterval(function () {
-                if (typeof Office !== "undefined" && typeof Office.Controls.Login !== "undefined") {
+                if (typeof Office !== "undefined" && typeof Office.Controls!== "undefined") {
                     window.clearInterval(timerId);
                     creatLoginControl();
                 }
@@ -36,7 +36,7 @@
 
     function creatLoginControl() {
 
-        login = new Office.Controls.Login("implicit", window.config);
+        login = new Office.Controls.ImplicitGrantLogin(window.config);
 
         var user = login.getCurrentUser();
         if (user) {
@@ -46,15 +46,15 @@
 
         document.getElementById('login_user').addEventListener("click", function () {
             if (user) {
-                login.signOut();
+                login.logout();
             } else {
-                login.signIn();
+                login.login();
             }
         });
     }
 
     function callWebAPI() {
-        login.getAccessToken(window.config.clientId, callAPIWithToken);
+        login.getAccessTokenAsync(window.config.clientId, callAPIWithToken);
     }
 
     function callAPIWithToken(error, token) {
