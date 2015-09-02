@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test Page for AppChrome Control</title>
+</head>
+<body style="margin:0px">
+    <script>
+        var PeoplePicker;
+
+         function insert_row(){
+            var root = document.getElementById("customizedItems");
+            R = root.insertRow(root.childNodes[0].childElementCount);
+            C = R.insertCell(0)
+            C.innerHTML = "itemName(string):"
+            C = R.insertCell(1)
+            C.innerHTML = "<input type=text>"
+            C = R.insertCell(2)
+            C.innerHTML = "itemLink(string):"
+            C = R.insertCell(3)
+            C.innerHTML = "<input type=text>"
+        }
+
+        function get_Items(){
+            var root = document.getElementById("customizedItems").childNodes[1].getElementsByTagName("tr");
+            var num = root.length;
+            var items_str="";
+            for(var i=1;i<num;i++){
+                var ele_name = root[i].getElementsByTagName("td")[1];
+                var ele_link = root[i].getElementsByTagName("td")[3];
+                items_str+=ele_name.childNodes[0].value+"|"+ele_link.childNodes[0].value+";";
+            }
+            return items_str;
+        }
+
+        function createLogin()
+        {
+            var appTitle="";
+            var appHomeUrl="";
+            var onSignIn;
+            var onSignOut;
+            var localUrl = window.location.href;
+
+            if (document.getElementById("a1").value != "") {
+                appTitle = document.getElementById("a1").value;
+            }
+            localUrl = localUrl + "AppChromePage.html?appTitle=" + appTitle;
+
+            if (document.getElementById("a2").value != "") {
+                appHomeUrl = document.getElementById("a2").value;
+                localUrl = localUrl + "&appHomeUrl="+appHomeUrl;
+            }
+
+            if (document.getElementById("a3").checked == true) {
+                onSignIn = true;
+                localUrl = localUrl + "&onSignIn=1";
+            }
+
+            if (document.getElementById("a4").checked == true) {
+                onSignOut = true;
+                localUrl = localUrl + "&onSignOut=1";
+            }
+            var customizedItems = get_Items();
+            localUrl = localUrl + "&items=" + customizedItems;
+            window.open(localUrl);
+        }
+    </script>
+    <h2>Input following options to create a AppChrome</h2>
+    <table>
+        <tr>
+            <td>appTitle(string):</td>
+            <td><input type="text" id="a1" /></td>
+            <td>appHomeUrl(string):</td>
+            <td><input type="text" id="a2" /></td>
+        </tr>
+        <tr>
+            <td>onSignIn listener:</td>
+            <td><input type="checkbox" id="a3" /></td>
+            <td>onSignOut listener:</td>
+            <td><input type="checkbox" id="a4" /></td>
+        </tr>
+    </table>
+    <table id="customizedItems">
+        <tr>
+            <td>customizedItems:</td>
+            <td><button id="createPPButton" onclick="insert_row()">Add Item</button></td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="createLogin()">Create AppChrome</button>
+</body>
+
+</html>
