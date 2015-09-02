@@ -82,7 +82,7 @@
         dropDownListNode: null,
         loginProvider: null,
         appDisPlayName: "3rd Party App",
-        appHomeUrl: null,
+        appHomeUrl: "#",
         customizedItems: null,
         isSignedIn: false,
         signedUserInfo: null,

@@ -35,11 +35,7 @@
     }
 
     function creatAppChrome() {
-        var ItemtoAdd = {
-            "Bing": "http://www.bing.com/",
-            "Microsoft": "http://www.microsoft.com/en-au/",
-            "MSDN": "http://msdn.itellyou.cn/"
-        };
+
         var login = new Office.Controls.ImplicitGrantLogin(window.config);
         var appTitle = GetArgsFromHref("appTitle");
 
@@ -48,7 +44,6 @@
         var customized = GetArgsFromHref("items");
         options.customizedItems = genItemtoAdd(customized);
 
-        //options.customizedItems = ItemtoAdd
         if(GetArgsFromHref("onSignIn")=="1"){
             options.onSignIn = listener1;
         }
@@ -68,6 +63,7 @@
 
     function GetArgsFromHref(sArgName) {
         var sHref = window.location.href;
+        sHref = decodeURI(sHref);
         var args = sHref.split("?");
         var retval = "";
         if (args[0] == sHref) /*参数为空*/ {
