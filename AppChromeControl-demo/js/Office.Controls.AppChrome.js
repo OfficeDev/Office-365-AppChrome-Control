@@ -14,6 +14,14 @@
         }
     }
 
+    function isEmpty(testString){
+        if(testString.replace(/(^\s+)|(\s+$)/g, "").length!=0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
     Office.Controls.AppChrome = function(appTitle, root, loginProvider, options) {
         if (typeof root !== 'object' || typeof loginProvider !== 'object' || (!Office.Controls.Utils.isNullOrUndefined(options) && typeof options !== 'object')) {
             Office.Controls.Utils.errorConsole('Invalid parameters type');
@@ -21,11 +29,11 @@
         }
         this.rootNode = root;
         this.loginProvider = loginProvider;
-        if (!Office.Controls.Utils.isNullOrUndefined(appTitle) && appTitle.replace(/(^\s+)|(\s+$)/g, "").length != 0) {
+        if (!Office.Controls.Utils.isNullOrUndefined(appTitle) && !isEmpty(appTitle)) {
             this.appDisPlayName = appTitle;
         }
         if (!Office.Controls.Utils.isNullOrUndefined(options)) {
-            if (!Office.Controls.Utils.isNullOrUndefined(options.appHomeUrl)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.appHomeUrl) && !isEmpty(options.appHomeUrl)) {
                 this.appHomeUrl = options.appHomeUrl;
             }
             if (!Office.Controls.Utils.isNullOrUndefined(options.customizedItems)) {
@@ -250,6 +258,9 @@
         innerHtml += Office.Controls.appChromeTemplates.generatePersonaPart();
         if (!Office.Controls.Utils.isNullOrUndefined(appLinks)) {
             for (var name in appLinks) {
+                if(isEmpty(name) || isEmpty(appLinks[name])){
+                    continue;
+                }
                 innerHtml += Office.Controls.appChromeTemplates.generateAppLinkPart(name, appLinks[name]);
             }
         }
