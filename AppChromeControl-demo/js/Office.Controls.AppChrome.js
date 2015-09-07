@@ -14,10 +14,24 @@
         }
     }
 
-    function isEmpty(testString){
-        if(testString.replace(/(^\s+)|(\s+$)/g, "").length!=0){
+    function isEmpty(testString) {
+        if (testString.replace(/(^\s+)|(\s+$)/g, "").length != 0) {
             return false;
-        }else{
+        } else {
+            return true;
+        }
+    }
+
+    function ValidUrl(testString) {
+        var pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
+            '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
+        if (!pattern.test(testString)) {
+            return false;
+        } else {
             return true;
         }
     }
@@ -30,8 +44,8 @@
         this.rootNode = root;
         this.loginProvider = loginProvider;
         if (!Office.Controls.Utils.isNullOrUndefined(appTitle) && !isEmpty(appTitle)) {
-            if(appTitle.length>=50){
-                appTitle = appTitle.substr(0,50);
+            if (appTitle.length >= 50) {
+                appTitle = appTitle.substr(0, 50);
             }
             this.appDisPlayName = appTitle;
         }
@@ -262,14 +276,14 @@
         if (!Office.Controls.Utils.isNullOrUndefined(appLinks)) {
             var countItem = 0;
             for (var name in appLinks) {
-                if(isEmpty(name) || isEmpty(appLinks[name])){
+                if (isEmpty(name) || isEmpty(appLinks[name]) || !ValidUrl(appLinks[name])) {
                     continue;
                 }
                 innerHtml += Office.Controls.appChromeTemplates.generateAppLinkPart(name, appLinks[name]);
-                countItem +=1;
+                countItem += 1;
             }
-            if(countItem!=0){
-                innerHtml +=Office.Controls.appChromeTemplates.generateMenuSeparator();
+            if (countItem != 0) {
+                innerHtml += Office.Controls.appChromeTemplates.generateMenuSeparator();
             }
         }
         innerHtml += Office.Controls.appChromeTemplates.generateSignOutPart();
@@ -286,8 +300,8 @@
     };
 
     Office.Controls.appChromeTemplates.generateAppLinkPart = function(name, link) {
-        if(name.length>=40){
-            name = name.substr(0,40);
+        if (name.length >= 40) {
+            name = name.substr(0, 40);
         }
         var innerHtml = '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" class=\"ms-item-tdr\" tabindex=\"-1\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" href=\"' + link + '\">';
         innerHtml += '<div class=\"_fce_j\"><span class=\"_fce_k owaimg\" role=\"presentation\" style=\"display: none;\"></span><span autoid=\"_fce_4\">' + Office.Controls.Utils.htmlEncode(name) + '</span></div></a></div>';
