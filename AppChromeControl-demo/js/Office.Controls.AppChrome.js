@@ -30,6 +30,9 @@
         this.rootNode = root;
         this.loginProvider = loginProvider;
         if (!Office.Controls.Utils.isNullOrUndefined(appTitle) && !isEmpty(appTitle)) {
+            if(appTitle.length>=50){
+                appTitle = appTitle.substr(0,50);
+            }
             this.appDisPlayName = appTitle;
         }
         if (!Office.Controls.Utils.isNullOrUndefined(options)) {
@@ -283,6 +286,9 @@
     };
 
     Office.Controls.appChromeTemplates.generateAppLinkPart = function(name, link) {
+        if(name.length>=40){
+            name = name.substr(0,40);
+        }
         var innerHtml = '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" class=\"ms-item-tdr\" tabindex=\"-1\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" href=\"' + link + '\">';
         innerHtml += '<div class=\"_fce_j\"><span class=\"_fce_k owaimg\" role=\"presentation\" style=\"display: none;\"></span><span autoid=\"_fce_4\">' + Office.Controls.Utils.htmlEncode(name) + '</span></div></a></div>';
         return innerHtml;
