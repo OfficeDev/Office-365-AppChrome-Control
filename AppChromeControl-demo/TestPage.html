@@ -39,12 +39,12 @@
             var appHomeUrl="";
             var onSignIn;
             var onSignOut;
-            var localUrl = window.location.href;
+            var localUrl = window.location.origin;
 
             if (document.getElementById("a1").value != "") {
                 appTitle = document.getElementById("a1").value;
             }
-            localUrl = localUrl + "AppChromePage.html?appTitle=" + appTitle;
+            localUrl = localUrl + "/AppChromePage.html?appTitle=" + appTitle;
 
             if (document.getElementById("a2").value != "") {
                 appHomeUrl = document.getElementById("a2").value;
@@ -70,7 +70,7 @@
         <tr>
             <td>appTitle(string):</td>
             <td><input type="text" id="a1" /></td>
-            <td>appHomeUrl(string):</td>
+            <td>appHomeUrl(string)(Eg: http://www.bing.com/):</td>
             <td><input type="text" id="a2" /></td>
         </tr>
         <tr>
