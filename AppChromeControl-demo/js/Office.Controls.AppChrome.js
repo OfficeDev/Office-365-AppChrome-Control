@@ -50,7 +50,7 @@
             this.appDisPlayName = appTitle;
         }
         if (!Office.Controls.Utils.isNullOrUndefined(options)) {
-            if (!Office.Controls.Utils.isNullOrUndefined(options.appHomeUrl) && !isEmpty(options.appHomeUrl)) {
+            if (!Office.Controls.Utils.isNullOrUndefined(options.appHomeUrl) && !isEmpty(options.appHomeUrl) && ValidUrl(options.appHomeUrl)) {
                 this.appHomeUrl = options.appHomeUrl;
             }
             if (!Office.Controls.Utils.isNullOrUndefined(options.customizedItems)) {
@@ -159,6 +159,8 @@
                 loginButton.addEventListener('click', function() {
                     if (Personalistview.style.display == 'none') {
                         Personalistview.style.display = 'block';
+                    }else{
+                        Personalistview.style.display = 'none';
                     }
                     instance.changeTopMenuColor();
                 });
@@ -274,15 +276,15 @@
         innerHtml += '<div class=\"o365cs-base ms-bgc-w o365cst o365cs-context-font o365cs-me-contextMenu\"><div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_0\" class=\"o365cs-me-itemsList\" tabindex=\"-1\" id=\"additem\"><div>';
         innerHtml += Office.Controls.appChromeTemplates.generatePersonaPart();
         if (!Office.Controls.Utils.isNullOrUndefined(appLinks)) {
-            var countItem = 0;
+            var hasItem = false;
             for (var name in appLinks) {
                 if (isEmpty(name) || isEmpty(appLinks[name]) || !ValidUrl(appLinks[name])) {
                     continue;
                 }
                 innerHtml += Office.Controls.appChromeTemplates.generateAppLinkPart(name, appLinks[name]);
-                countItem += 1;
+                hasItem = true;
             }
-            if (countItem != 0) {
+            if (hasItem) {
                 innerHtml += Office.Controls.appChromeTemplates.generateMenuSeparator();
             }
         }
