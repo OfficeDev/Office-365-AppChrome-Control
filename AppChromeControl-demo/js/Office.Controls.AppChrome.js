@@ -156,29 +156,37 @@
                 document.getElementById('login_user_image').title = this.signedUserInfo.displayName;
                 document.getElementById('image_container').style.display = 'table-cell';
                 this.genInlinePersona(document.getElementById('myPersona'));
-                loginButton.addEventListener('click', function() {
+                loginButton.addEventListener('click', function(e) {
                     if (Personalistview.style.display == 'none') {
                         Personalistview.style.display = 'block';
                     }else{
                         Personalistview.style.display = 'none';
                     }
                     instance.changeTopMenuColor();
+                    Office.Controls.Utils.cancelEvent(e);
                 });
                 document.onclick = function(e) {
                     if (Personalistview.style.display == 'block') {
-                        e = e || event;
-                        var target = e.target || e.srcElement;
-                        while (target) {
-                            if (target == loginButton || target == Personalistview) {
-                                Personalistview.style.display = 'block';
+                        Personalistview.style.display = 'none';
+                        instance.changeTopMenuColor();
+                    }
+                }
+                document.oncontextmenu = function (e) {
+                    e = e || event;
+                    var target = e.target || e.srcElement;
+                    if (Personalistview.style.display == 'block') {
+                        while (target != undefined && target != null) {
+                            if (target == Personalistview) {
+                                return true;
+                            }
+                            if (target == loginButton) {
                                 break;
-                            } else {
-                                Personalistview.style.display = 'none';
                             }
                             target = target.parentNode;
                         }
+                        Personalistview.style.display = 'none';
+                        instance.changeTopMenuColor();
                     }
-                    instance.changeTopMenuColor();
                 }
             }
         },
