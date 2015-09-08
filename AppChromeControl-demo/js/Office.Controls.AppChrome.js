@@ -272,7 +272,7 @@
     };
 
     Office.Controls.appChromeTemplates.generateDropDownList = function(appLinks) {
-        var innerHtml = '<div class=\"o365cs-nav-contextMenu o365cs-dropdownlist contextMenuPopup removeFocusOutline\" ispopup=\"1\" iscontextmenu=\"1\" role=\"menu\" ismodal=\"false\" tabindex=\"-1\" parentids=\"(6)\" style=\"display: none;\" id=\"_ariaId_7\">';
+        var innerHtml = '<div class=\"o365cs-nav-contextMenu o365cs-dropdownlist contextMenuPopup\" ispopup=\"1\" iscontextmenu=\"1\" role=\"menu\" ismodal=\"false\" tabindex=\"-1\" parentids=\"(6)\" style=\"display: none;\" id=\"_ariaId_7\">';
         innerHtml += '<div class=\"o365cs-base ms-bgc-w o365cst o365cs-context-font o365cs-me-contextMenu\"><div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_0\" class=\"o365cs-me-itemsList\" tabindex=\"-1\" id=\"additem\"><div>';
         innerHtml += Office.Controls.appChromeTemplates.generatePersonaPart();
         if (!Office.Controls.Utils.isNullOrUndefined(appLinks)) {
@@ -316,7 +316,7 @@
     }
 
     Office.Controls.appChromeTemplates.generateSignOutPart = function() {
-        var innerHtml = '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" class=\"ms-item-tdr\" tabindex=\"-1\" aria-label=\"Sign out and return to the Sign-in page\" title=\"Sign out and return to the Sign-in page\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" id=\"O365_SubLink_ShellSignout\" aria-label=\"Sign out of Office 365 and return to the Sign-in page\">';
+        var innerHtml = '<div autoid=\"__Microsoft_O365_ShellG2_Plus_templates_cs_1\" class=\"ms-item-tdr\" tabindex=\"-1\" aria-label=\"Sign out and return to the Sign-in page\" title=\"Sign out and return to the Sign-in page\" aria-selected=\"false\"><a class=\"o365button o365cs-contextMenuItem ms-fcl-b\" role=\"link\" href=\"#\" id=\"O365_SubLink_ShellSignout\" aria-label=\"Sign out of Office 365 and return to the Sign-in page\">';
         innerHtml += '<div class=\"_fce_j\"><span class=\"_fce_k owaimg\" role=\"presentation\" style=\"display: none;\"></span><span autoid=\"_fce_4\" aria-label=\"Sign out of Office 365 and return to the Sign-in page\">' + Office.Controls.Utils.htmlEncode(Office.Controls.appChromeResourceString.SignOutString) + '</span></div></a></div>';
         return innerHtml;
     };

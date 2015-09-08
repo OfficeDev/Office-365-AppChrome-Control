@@ -68,21 +68,21 @@
     <h2>Input following options to create a AppChrome</h2>
     <table>
         <tr>
-            <td>appTitle(string):</td>
+            <td>appTitle(required,string):</td>
             <td><input type="text" id="a1" /></td>
-            <td>appHomeUrl(string)(Eg: http://www.bing.com/):</td>
+            <td>appHomeUrl(optional,string)(Eg: http://www.bing.com/):</td>
             <td><input type="text" id="a2" /></td>
         </tr>
         <tr>
-            <td>onSignIn listener:</td>
+            <td>onSignIn listener(optional):</td>
             <td><input type="checkbox" id="a3" /></td>
-            <td>onSignOut listener:</td>
+            <td>onSignOut listener(optional):</td>
             <td><input type="checkbox" id="a4" /></td>
         </tr>
     </table>
     <table id="customizedItems">
         <tr>
-            <td>customizedItems:</td>
+            <td>customizedItems(optional):</td>
             <td><button id="createPPButton" onclick="insert_row()">Add Item</button></td>
         </tr>
     </table>
