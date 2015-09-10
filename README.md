@@ -22,9 +22,7 @@ To build minified files
 * gulp
 
 ## Note
-if using the implicit grant login provider we provided, it has security issue if user uses access token directly to do some user credential related operation. The access token must be sent to a backend service for parsing and validating. And we provide server side validating token sample code. Please reference the sample project LoginControlForSPASolution.
-
-
+Implicit grant login provider implementation is based on ADAL.js, which stores the access token in browser's localStorage. The use of localStorage has security implications, given that other apps in the same domain will have access to it, and it is prone to all the same attacks that localStorage have to deal with. So before using access token to do some user credential related operation, it must be sent to a backend service for parsing and validating. We provide server side sample project LoginControlForSPASolutionabout to validat access token. More ways about how to validate access token, please reference here: https://github.com/AzureADSamples
 
 
 
