@@ -224,7 +224,7 @@
 	box-sizing: border-box;
 	text-align: center;
 	line-height: normal;
-	overflow: visible;
+	overflow: hidden;
 	cursor: pointer;
 	outline-offset: -1px
 }
@@ -364,7 +364,6 @@
 	height: 50px;
 	width: 50px;
 	overflow: hidden;
-	position: relative;
 	display: none;
 }
 .o365cs-me-tileimg {
@@ -379,7 +378,7 @@
 .o365cs-me-personaimg {
 	position: absolute;
 	left: 0;
-	top: 0px;
+	top: 0;
 	display: inline; 
 	height: 50px;
 	width: 50px;
