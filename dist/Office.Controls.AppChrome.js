@@ -151,7 +151,7 @@
                 if (this.signedUserInfo.imgSrc != null) {
                     instance.defaultImage = this.signedUserInfo.imgSrc;
                 }
-                document.getElementById('login_user_image').src = this.defaultImage;
+                document.getElementById('login_user_image').style.backgroundImage = "url('" + instance.defaultImage + "')";
 
                 document.getElementById('login_user_image').title = this.signedUserInfo.displayName;
                 document.getElementById('image_container').style.display = 'table-cell';
@@ -267,7 +267,7 @@
 
         innerHtml += '<div class=\"o365cs-me-tileview-container\" id=\"image_container\">';
 
-        innerHtml += '<div autoid=\"_o365sg2c_1\" class=\"o365cs-me-tileview\"><div class=\"o365cs-me-tileimg\"><img autoid=\"_o365sg2c_5\" class=\"o365cs-me-personaimg\" id=\"login_user_image\"></div></div></div>';
+        innerHtml += '<div autoid=\"_o365sg2c_1\" class=\"o365cs-me-tileview\"><div class=\"o365cs-me-tileimg\"><div autoid=\"_o365sg2c_5\" class=\"o365cs-me-personaimg\" id=\"login_user_image\"></div></div></div></div>';
 
         innerHtml += '<div class=\"o365cs-me-tile-container\"><div autoid=\"_o365sg2c_6\" id=\"o365_ac_loginbutton\"><div class=\"o365cs-me-tile-nophoto-username-container\">';
 
