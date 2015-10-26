@@ -23,6 +23,7 @@
     <WebGreaseLibPath>f:\CxCache\WebGrease.1.5.2\lib</WebGreaseLibPath>
     <NuGetPackageImportStamp>396a6101</NuGetPackageImportStamp>
     <ApplicationInsightsResourceId />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -215,9 +216,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="index.html" />
-    <Content Include="index1.html" />
-    <Content Include="Office.Controls.Login.js" />
+    <Content Include="start.html" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>

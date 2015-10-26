@@ -18,7 +18,7 @@
 
     <script type="text/javascript">
     window.config = {
-        clientId: '2c8a76f0-54fd-4511-98c9-4fc8b123735e',
+        clientId: '', // TODO: please fill in the client id of Azure app created by you
         redirectUri: window.location.href,
         postLogoutRedirectUri: window.location,
         cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
@@ -45,8 +45,6 @@
         options = new Object();
         options.appHomeUrl = "http://www.bing.com";
         options.customizedItems = ItemtoAdd
-        //options.onSignIn = listener1;
-        //options.onSignOut = listener2;
         var appChrome = new Office.Controls.AppChrome("Microsoft", document.getElementById('cotainer'), login, options);
     }
     function listener1() {

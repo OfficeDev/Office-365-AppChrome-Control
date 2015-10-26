@@ -17,7 +17,7 @@
     <div id="container"></div>
     <script type="text/javascript">
     window.config = {
-        clientId: "2c8a76f0-54fd-4511-98c9-4fc8b123735e",
+        clientId: "",   // TODO: please fill in the client id of Azure app created by you
         redirectUri: window.location.href,
         postLogoutRedirectUri: window.location,
         cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not work for localhost.
@@ -66,8 +66,8 @@
         sHref = decodeURI(sHref);
         var args = sHref.split("?");
         var retval = "";
-        if (args[0] == sHref) /*参数为空*/ {
-            return retval; /*无需做任何处理*/
+        if (args[0] == sHref) /*parameter is null*/ {
+            return retval; /*do nothing*/
         }
         var str = args[1];
         args = str.split("&");
@@ -93,5 +93,4 @@
     }
     </script>
 </body>
-
 </html>

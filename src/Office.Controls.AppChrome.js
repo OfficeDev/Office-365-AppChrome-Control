@@ -155,7 +155,7 @@
 
                 document.getElementById('login_user_image').title = this.signedUserInfo.displayName;
                 document.getElementById('image_container').style.display = 'table-cell';
-                this.genInlinePersona(document.getElementById('myPersona'));
+                this.getInlinePersona(document.getElementById('myPersona'));
                 loginButton.addEventListener('click', function(e) {
                     if (Personalistview.style.display == 'none') {
                         Personalistview.style.display = 'block';
@@ -202,7 +202,7 @@
             }
         },
 
-        genInlinePersona: function(ele) {
+        getInlinePersona: function(ele) {
             if (typeof ele !== 'object') {
                 Office.Controls.Utils.errorConsole('Invalid parameters type');
                 return;
@@ -223,7 +223,9 @@
         },
 
         addClass: function(obj, classStr) {
-            if (!this.hasClass(obj, classStr)) obj.className += " " + classStr;
+            if (!this.hasClass(obj, classStr)) {
+                obj.className += " " + classStr;
+            }
         },
 
         removeClass: function(obj, classStr) {
@@ -286,11 +288,13 @@
         if (!Office.Controls.Utils.isNullOrUndefined(appLinks)) {
             var hasItem = false;
             for (var name in appLinks) {
-                if (isEmpty(name) || isEmpty(appLinks[name]) || !ValidUrl(appLinks[name])) {
-                    continue;
+                if (appLinks.hasOwnProperty(name)) {
+                    if (isEmpty(name) || isEmpty(appLinks[name]) || !ValidUrl(appLinks[name])) {
+                        continue;
+                    }
+                    innerHtml += Office.Controls.appChromeTemplates.generateAppLinkPart(name, appLinks[name]);
+                    hasItem = true;
                 }
-                innerHtml += Office.Controls.appChromeTemplates.generateAppLinkPart(name, appLinks[name]);
-                hasItem = true;
             }
             if (hasItem) {
                 innerHtml += Office.Controls.appChromeTemplates.generateMenuSeparator();

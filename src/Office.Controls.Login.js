@@ -128,7 +128,7 @@
         getUserInfoAsync: function(callback) {
             var user = this.authContext.getCachedUser()
             if (user) {
-                var userInfo = new Object();
+                var userInfo = {};
                 userInfo.accountName = user.userName;
                 userInfo.displayName = user.profile.given_name + ' ' + user.profile.family_name;
                 this.getUserImageAsync(user.profile.oid, function(error, image) {
