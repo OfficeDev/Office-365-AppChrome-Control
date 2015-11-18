@@ -1,4 +1,4 @@
-O365 AppChrome Control
+Office 365 AppChrome Control
 
 Copyright (c) Microsoft Corporation
 

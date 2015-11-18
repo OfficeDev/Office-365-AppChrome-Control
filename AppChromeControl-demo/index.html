@@ -37,15 +37,15 @@
 
     function creatAppChrome() {
         var ItemtoAdd = {
-            "Bing": "http://www.bing.com/",
-            "Microsoft": "http://www.microsoft.com/en-au/",
-            "MSDN": "http://msdn.itellyou.cn/"
+            "Customized Item 1": "http://www.example-ulr.com/",
+            "Customized Item 2": "http://www.example-ulr.com/",
+            "Customized Item 3": "http://www.example-ulr.com/"
         };
         var login = new Office.Controls.ImplicitGrantLogin(window.config);
         options = new Object();
-        options.appHomeUrl = "http://www.bing.com";
+        options.appHomeUrl = "http://www.example-ulr.com/";
         options.customizedItems = ItemtoAdd
-        var appChrome = new Office.Controls.AppChrome("Microsoft", document.getElementById('cotainer'), login, options);
+        var appChrome = new Office.Controls.AppChrome("Sample App", document.getElementById('cotainer'), login, options);
     }
     function listener1() {
         alert("listener function-- sign in");
