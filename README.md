@@ -18,7 +18,7 @@ Here are the key steps
  - Set "Redirect URI" for your web app
  - Configure "Implicit Grant" for OAuth flow
 
-For more detail guidance, you could check from - [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/undefined/office/office365/howto/getting-started-Office-365-APIs)
+For more detail guidance, you could check from - [Create an app with Office 365 APIs](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 
 ## Permissions 
 You need to configure permissions for your Office 365 app based on the API and scope you want to access. 
