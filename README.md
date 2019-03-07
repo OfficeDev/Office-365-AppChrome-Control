@@ -1,3 +1,13 @@
+---
+topic: sample
+products:
+- Office 365
+languages:
+- JavaScript
+extensions:
+  contentType: samples
+  createdDate: 6/9/2015 12:03:26 AM
+---
 # Office 365 AppChrome Control
 
 ========================
