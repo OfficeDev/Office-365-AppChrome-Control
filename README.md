@@ -1,16 +1,16 @@
 ---
-page_type: sample
 products:
 - office-365
 languages:
 - javascript
 extensions:
-  contentType: samples
   createdDate: 6/9/2015 12:03:26 AM
 ---
-# Office 365 AppChrome Control
+# [ARCHIVED] Office 365 AppChrome Control
 
 ========================
+
+**Note:** This repo is archived and no longer actively maintained. Security vulnerabilities may exist in the project, or its dependencies. If you plan to reuse or run any code from this repo, be sure to perform appropriate security checks on the code or dependencies first. Do not use this project as the starting point of a production Office Add-in. Always start your production code by using the Office/SharePoint development workload in Visual Studio, or the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office), and follow security best practices as you develop the add-in.
 
 The Office 365 AppChrome Control provides a simple but extensible way to add Office 365-style navigation bar with your own functions. This enables users to sign in and out of their Office 365 account and navigate to sites and pages that you'd like to feature. We develop the control in JavaScript to provide universal compatibility without the additional overhead of other frameworks. We build the controls with two parts, Web UI and Data Provider, so that developers could customize the control easily based on the interface we defined.
 
